@@ -29,22 +29,22 @@ npm run build
 Recommended hosting: Vercel.
 
 - Local: work on your machine with `npm run dev`.
-- Development / Preview: push a feature branch to GitHub. Vercel creates a preview URL for that branch.
-- Production: merge into `main`. Vercel publishes the production URL.
+- Development: push work to the `dev` branch and check the Vercel dev deployment URL.
+- Production: merge stable work into `main`. Vercel publishes the production URL.
 
 Suggested branch flow:
 
 ```bash
 main                 # production
-develop              # development/staging, optional
-feature/hero-update  # individual changes
+dev                  # development/staging
+feature/hero-update  # optional individual changes
 ```
 
-For a simple setup, use only:
+For a simple setup, use:
 
 ```bash
 main                 # production
-feature/*            # preview deployments
+dev                  # development preview
 ```
 
 Vercel environment variables can be separated by environment:
