@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Yesica Portfolio
 
-## Getting Started
+Next.js, TypeScript, Tailwind CSS, and Framer Motion based portfolio site for Yesica.
 
-First, run the development server:
+## Local Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open the local URL printed in the terminal, usually:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+If that port is already in use, Next.js will choose another port such as `3001`.
 
-## Learn More
+## Validation
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+npm run build
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment Workflow
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Recommended hosting: Vercel.
 
-## Deploy on Vercel
+- Local: work on your machine with `npm run dev`.
+- Development / Preview: push a feature branch to GitHub. Vercel creates a preview URL for that branch.
+- Production: merge into `main`. Vercel publishes the production URL.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Suggested branch flow:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+main                 # production
+develop              # development/staging, optional
+feature/hero-update  # individual changes
+```
+
+For a simple setup, use only:
+
+```bash
+main                 # production
+feature/*            # preview deployments
+```
+
+Vercel environment variables can be separated by environment:
+
+- Development: local development values
+- Preview: branch preview values
+- Production: live site values
+
+This project currently does not require environment variables.
