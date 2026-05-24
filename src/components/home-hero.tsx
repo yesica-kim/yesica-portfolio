@@ -9,50 +9,32 @@ const cards = [
     title: "Schedule Block",
     badge: "Live Product",
     description:
-      "A recovery-first scheduling app that frees you from the stress of rescheduling.",
-    cta: "View Case Study",
+      "계획이 밀린 뒤에도 다시 회복할 수 있도록 설계한 일정 블록 앱",
+    cta: "케이스 보기",
     href: "/projects/schedule-block",
-    className: "lg:mt-4",
+    className: "",
     visual: "schedule",
   },
   {
-    title: "mobimobi",
-    badge: "Live Product",
-    description:
-      "Routine tracker for Mabinogi Mobile players. Organize, track, and never miss your daily tasks.",
-    cta: "Coming Soon",
-    href: "/projects",
-    className: "lg:mt-16",
-    visual: "mobi",
-  },
-  {
     title: "AI Workflow",
-    badge: "Personal System",
+    badge: "Maker System",
     description:
-      "Automations that connect Gmail, Telegram, Notion and n8n for daily clarity.",
-    cta: "View Details",
+      "아이디어 정리부터 프로토타입과 자동화까지 빠르게 반복하는 개인 작업 시스템",
+    cta: "흐름 보기",
     href: "/projects",
-    className: "lg:-mt-4",
+    className: "lg:translate-x-10",
     visual: "workflow",
   },
   {
-    title: "Product Systems",
-    badge: "Case Study",
+    title: "Service Systems",
+    badge: "Real Service",
     description:
-      "End-to-end product design from user research to service operation.",
-    cta: "View Case Study",
+      "사용자 화면과 관리자 운영 흐름을 함께 보는 실무형 제품 설계",
+    cta: "작업 보기",
     href: "/projects",
-    className: "lg:mt-6",
+    className: "lg:-translate-x-6",
     visual: "systems",
   },
-];
-
-const trustItems = [
-  ["13+ Years", "of Experience"],
-  ["UI/UX Design", "Web, Mobile, Admin"],
-  ["Product Design", "End-to-end Experience"],
-  ["Service Operation", "Real World Impact"],
-  ["AI Collaboration", "Maker with AI"],
 ];
 
 export function HomeHero() {
@@ -72,49 +54,46 @@ export function HomeHero() {
   return (
     <section
       onMouseMove={handleMouseMove}
-      className="relative isolate overflow-hidden border-b border-white/[0.07] px-5 pb-12 pt-10 sm:px-8 lg:min-h-[calc(100vh-5rem)] lg:pb-8 lg:pt-12"
+      className="relative isolate overflow-hidden border-b border-white/[0.07] px-5 pb-16 pt-14 sm:px-8 lg:min-h-[calc(88vh-5rem)] lg:pb-20 lg:pt-16"
     >
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_72%_28%,rgba(90,141,255,0.22),transparent_32rem),radial-gradient(circle_at_86%_46%,rgba(77,225,193,0.12),transparent_24rem)]" />
-      <div className="absolute left-[43%] top-[55%] -z-10 hidden h-[34rem] w-[52rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.08] lg:block" />
-      <div className="absolute right-[5%] top-[33%] -z-10 hidden h-[24rem] w-[24rem] rounded-full border border-[#5ef2c2]/20 lg:block" />
+      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_74%_30%,rgba(90,141,255,0.18),transparent_30rem),radial-gradient(circle_at_88%_50%,rgba(77,225,193,0.1),transparent_24rem)]" />
+      <div className="absolute left-[50%] top-[52%] -z-10 hidden h-[30rem] w-[58rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.06] lg:block" />
 
-      <div className="mx-auto grid w-full max-w-[1200px] gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+      <div className="mx-auto grid w-full max-w-[1200px] gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, ease: "easeOut" }}
-          className="relative z-10 max-w-3xl lg:pt-24"
+          className="relative z-10 max-w-3xl"
         >
-          <div className="mb-6 flex flex-wrap items-center gap-3">
-            <span className="text-base text-[#c5ced8] sm:text-lg">
+          <div className="mb-8 flex flex-wrap items-center gap-3">
+            <span className="text-sm font-medium text-[#c5ced8] sm:text-base">
               Product Designer / UI/UX Designer
             </span>
           </div>
-          <h1 className="text-[clamp(3.15rem,5.75vw,5.45rem)] font-semibold leading-[0.95] tracking-[-0.055em] text-[#f4f7fa]">
-            Designing calm
-            <br />
-            systems for
+          <h1 className="text-[clamp(3.15rem,6.2vw,5.8rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-[#f4f7fa]">
+            Designing calm systems
             <br />
             <span className="bg-[linear-gradient(100deg,#5a8dff_0%,#4de1c1_72%,#5ef2c2_100%)] bg-clip-text text-transparent">
-              real life products.
+              for real life products
             </span>
           </h1>
-          <p className="mt-7 text-xl leading-8 text-[#9ba8b5]">
-            Product Designer · Independent Maker · AI Collaboration
+          <p className="mt-8 text-[clamp(1.65rem,3vw,2.7rem)] font-semibold leading-[1.18] tracking-[-0.035em] text-[#eef4f7]">
+            현실적인 서비스를 위한
+            <br />
+            차분한 시스템을 설계합니다
           </p>
-          <div className="mt-8 flex flex-wrap items-center gap-6">
+          <p className="mt-7 max-w-xl text-base leading-8 text-[#9ba8b5] sm:text-lg">
+            서비스 운영과 사용자 흐름을 함께 설계하며,
+            <br className="hidden sm:block" />
+            AI와 협업해 실제 제품을 만들고 개선합니다.
+          </p>
+          <div className="mt-10 flex flex-wrap items-center gap-6">
             <Link
               href="/projects"
-              className="group inline-flex h-14 items-center gap-3 rounded-full bg-[linear-gradient(120deg,#183c98,#5a8dff,#4de1c1)] px-7 text-base font-semibold text-white shadow-[0_18px_50px_rgba(90,141,255,0.28)] transition hover:-translate-y-0.5"
+              className="group inline-flex h-14 items-center gap-3 rounded-full bg-[linear-gradient(120deg,#183c98,#5a8dff,#4de1c1)] px-7 text-base font-semibold text-white shadow-[0_18px_50px_rgba(90,141,255,0.24)] transition hover:-translate-y-0.5"
             >
-              View Projects
-              <span className="transition group-hover:translate-x-1">→</span>
-            </Link>
-            <Link
-              href="/about"
-              className="group inline-flex h-14 items-center gap-3 text-base font-semibold text-[#aeb9c5] transition hover:text-white"
-            >
-              About Yesica
+              프로젝트 보기
               <span className="transition group-hover:translate-x-1">→</span>
             </Link>
           </div>
@@ -125,42 +104,13 @@ export function HomeHero() {
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.12 }}
-          className="relative z-10 grid gap-4 lg:-mb-24 lg:origin-top-right lg:scale-[0.88] lg:grid-cols-[1.06fr_0.86fr] lg:items-start lg:pt-1"
+          className="relative z-10 grid gap-5 lg:origin-center lg:scale-[0.88] lg:pl-8"
         >
           {cards.map((card, index) => (
             <ProductFloatCard key={card.title} index={index} {...card} />
           ))}
         </motion.div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0, y: 18 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: "easeOut", delay: 0.22 }}
-        className="mx-auto mt-10 w-full max-w-[1200px] rounded-[1.5rem] border border-white/[0.08] bg-[rgba(16,24,32,0.72)] p-5 shadow-[0_24px_90px_rgba(0,0,0,0.32)] backdrop-blur-md lg:mt-8"
-      >
-        <div className="grid gap-4 md:grid-cols-5">
-          {trustItems.map(([title, body]) => (
-            <div
-              key={title}
-              className="border-white/[0.08] md:border-r md:pr-5 md:last:border-r-0"
-            >
-              <p className="font-semibold text-[#f4f7fa]">{title}</p>
-              <p className="mt-1 text-sm text-[#9ba8b5]">{body}</p>
-            </div>
-          ))}
-        </div>
-        <div
-          id="tools"
-          className="mt-5 flex flex-wrap gap-3 border-t border-white/[0.07] pt-5 text-xs font-semibold text-[#6f7b88] sm:justify-end"
-        >
-          {["Figma", "Notion", "n8n", "Ps", "Automation"].map((tool) => (
-            <span key={tool} className="rounded-full bg-white/[0.05] px-3 py-1.5">
-              {tool}
-            </span>
-          ))}
-        </div>
-      </motion.div>
     </section>
   );
 }
@@ -188,9 +138,9 @@ function ProductFloatCard({
     <motion.article
       initial={{ opacity: 0, y: 22 }}
       animate={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -8, rotate: 0 }}
+      whileHover={{ y: -6, rotate: 0 }}
       transition={{ duration: 0.52, ease: "easeOut", delay: 0.12 + index * 0.07 }}
-      className={`${className} group overflow-hidden rounded-[1.45rem] border border-white/[0.1] bg-[rgba(16,24,32,0.72)] p-4 shadow-[0_24px_70px_rgba(0,0,0,0.34)] backdrop-blur-md transition hover:border-[#5ef2c2]/30 hover:shadow-[0_28px_90px_rgba(77,225,193,0.12)]`}
+      className={`${className} group overflow-hidden rounded-[1.45rem] border border-white/[0.1] bg-[rgba(16,24,32,0.62)] p-5 shadow-[0_24px_70px_rgba(0,0,0,0.28)] backdrop-blur-md transition hover:border-[#5ef2c2]/30 hover:shadow-[0_28px_90px_rgba(77,225,193,0.1)]`}
     >
       <div className="flex items-start justify-between gap-4">
         <CardIcon type={visual} />
@@ -200,10 +150,10 @@ function ProductFloatCard({
       </div>
       <div className="mt-4">
         <div>
-          <h2 className="text-xl font-semibold tracking-[-0.03em] text-white">
+          <h2 className="text-lg font-semibold tracking-[-0.03em] text-white">
             {title}
           </h2>
-          <p className="mt-3 text-sm leading-5 text-[#b0bbc7]">{description}</p>
+          <p className="mt-3 text-sm leading-6 text-[#b0bbc7]">{description}</p>
           <Link
             href={href}
             className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#5ef2c2] transition group-hover:gap-3"
