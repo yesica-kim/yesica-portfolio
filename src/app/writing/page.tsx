@@ -8,7 +8,7 @@ export default function WritingPage() {
         <SectionHeading
           eyebrow="Writing"
           title="제품, 디자인, 메이킹 기록을 위한 공간"
-          description="추후 브런치 글, 작업 회고, AI 협업 노트 등을 연결할 수 있는 placeholder 페이지입니다."
+          description="제품을 만들며 정리한 생각, 디자인 판단, AI 협업 실험을 차분히 모아두는 공간입니다."
         />
       </FadeIn>
       <FadeIn className="mt-10 rounded-[2rem] border border-white/[0.08] bg-white/[0.045] p-8 text-[#9ba8b5] shadow-[0_24px_80px_rgba(0,0,0,0.24)]">

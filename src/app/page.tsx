@@ -5,6 +5,34 @@ import { ProjectCard } from "@/components/project-card";
 import { SectionHeading } from "@/components/section-heading";
 import { selectedProjects } from "@/data/projects";
 
+const processItems = [
+  {
+    title: "Product Thinking",
+    description:
+      "문제 정의, 사용자 흐름, 운영 조건을 함께 보며 제품이 실제 환경에서 작동하는 구조를 설계합니다.",
+  },
+  {
+    title: "UX Flow",
+    description:
+      "사용자가 망설이지 않고 다음 행동으로 이어질 수 있도록 단계, 정보, 피드백의 흐름을 정리합니다.",
+  },
+  {
+    title: "Admin System",
+    description:
+      "운영자가 상태를 빠르게 파악하고 필요한 처리를 놓치지 않도록 관리 화면의 우선순위와 액션을 설계합니다.",
+  },
+  {
+    title: "AI Collaboration",
+    description:
+      "AI를 활용해 아이디어 탐색, 구조화, 프로토타입, 구현 실험을 빠르게 반복하며 제품 가능성을 검증합니다.",
+  },
+  {
+    title: "Independent Maker",
+    description:
+      "개인 문제에서 출발해 직접 제품을 만들고 운영하면서 실제 사용 경험을 기준으로 계속 개선합니다.",
+  },
+];
+
 export default function Home() {
   return (
     <main className="bg-[#060a0f]">
@@ -37,22 +65,16 @@ export default function Home() {
           />
         </FadeIn>
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {[
-            "Product Thinking",
-            "UX Flow",
-            "Admin System",
-            "AI Collaboration",
-            "Independent Maker",
-          ].map((item, index) => (
+          {processItems.map((item, index) => (
             <FadeIn
-              key={item}
+              key={item.title}
               delay={index * 0.04}
               className="rounded-2xl border border-white/[0.08] bg-white/[0.045] p-5 shadow-[0_18px_50px_rgba(0,0,0,0.24)]"
             >
               <div className="mb-8 h-10 w-10 rounded-2xl bg-gradient-to-br from-[#5a8dff] to-[#4de1c1]" />
-              <h3 className="text-lg font-semibold text-white">{item}</h3>
+              <h3 className="text-lg font-semibold text-white">{item.title}</h3>
               <p className="mt-3 text-sm leading-6 text-[#9ba8b5]">
-                추후 실제 사례와 판단 기준을 채워 넣을 수 있는 핵심 키워드 영역입니다.
+                {item.description}
               </p>
             </FadeIn>
           ))}

@@ -32,8 +32,7 @@ export function SiteHeader() {
             href="/contact"
             className="inline-flex h-11 items-center gap-3 rounded-full border border-white/12 bg-white/[0.06] px-5 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_14px_40px_rgba(0,0,0,0.32)] transition hover:border-[#5ef2c2]/40 hover:bg-white/[0.1]"
           >
-            <span className="hidden sm:inline">Contact Me</span>
-            <span className="sm:hidden">Contact</span>
+            Contact
           </Link>
         </div>
       </div>

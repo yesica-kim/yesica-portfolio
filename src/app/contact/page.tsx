@@ -3,10 +3,10 @@ import { FadeIn } from "@/components/motion";
 import { SectionHeading } from "@/components/section-heading";
 
 const links = [
-  ["Email", "hello@placeholder.com"],
-  ["Brunch", "brunch.co.kr/@placeholder"],
-  ["GitHub", "github.com/placeholder"],
-  ["LinkedIn", "linkedin.com/in/placeholder"],
+  ["Email", "contact@yesicastudio.com"],
+  ["Brunch", "brunch.co.kr/@yesica"],
+  ["GitHub", "github.com/yesica-kim"],
+  ["LinkedIn", "linkedin.com/in/yesica-kim"],
 ];
 
 export default function ContactPage() {
@@ -29,7 +29,7 @@ export default function ContactPage() {
             Freelance · Collaboration · Product Design · Hiring
           </h2>
           <p className="mt-5 text-base leading-8 text-white/70">
-            지금은 placeholder 연락처입니다. 실제 이메일과 링크를 연결하면 바로 공개용 contact 페이지로 사용할 수 있습니다.
+            제품의 방향을 함께 정리하거나, 복잡한 서비스 흐름을 더 사용하기 쉽게 만드는 일을 좋아합니다. 협업 방식과 범위는 프로젝트의 단계에 맞춰 유연하게 논의할 수 있습니다.
           </p>
           <div className="mt-8">
             <ButtonLink href="/projects">View Projects</ButtonLink>

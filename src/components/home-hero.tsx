@@ -20,7 +20,7 @@ const cards = [
     badge: "Live Product",
     description:
       "Routine tracker for Mabinogi Mobile players. Organize, track, and never miss your daily tasks.",
-    cta: "View Case Study",
+    cta: "Coming Soon",
     href: "/projects",
     className: "lg:mt-16",
     visual: "mobi",

@@ -87,8 +87,8 @@ export function ProjectDetail({ project }: { project: Project }) {
         <FadeIn>
           <SectionHeading
             eyebrow="Process"
-            title="생각의 흐름을 남길 수 있는 구조"
-            description="아직 세부 내용은 placeholder이지만, 리서치부터 반복 개선까지 케이스 스터디를 확장하기 쉽게 배치했습니다."
+            title="문제를 이해하고 제품 구조로 옮기는 과정"
+            description="리서치, 문제 정의, 정보 구조, 화면 설계, UI 디자인, 반복 개선의 흐름을 따라 핵심 의사결정을 정리합니다."
           />
         </FadeIn>
         <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -103,7 +103,7 @@ export function ProjectDetail({ project }: { project: Project }) {
               </p>
               <h3 className="mt-3 text-lg font-semibold text-neutral-950">{step}</h3>
               <p className="mt-2 text-sm leading-6 text-neutral-500">
-                이 단계의 판단, 산출물, 배운 점을 추후 상세히 채워 넣는 영역입니다.
+                프로젝트의 맥락에 맞춰 확인한 문제, 선택한 방향, 화면에 반영한 기준을 단계별로 정리합니다.
               </p>
             </FadeIn>
           ))}
@@ -114,8 +114,8 @@ export function ProjectDetail({ project }: { project: Project }) {
         <FadeIn>
           <SectionHeading
             eyebrow="Design Solution"
-            title="주요 화면을 배치할 수 있는 공간"
-            description="현재는 gradient mockup placeholder로 구성되어 있으며, 실제 이미지나 영상으로 교체하기 좋게 동일한 카드 구조를 사용합니다."
+            title="핵심 화면과 사용자 흐름"
+            description="주요 화면은 문제 해결 방향이 드러나도록 구성하고, 실제 산출물이 정리되는 대로 화면 이미지와 설명을 확장합니다."
           />
         </FadeIn>
         <div className="mt-8 grid gap-5 sm:grid-cols-2">
@@ -151,10 +151,10 @@ export function ProjectDetail({ project }: { project: Project }) {
             Result / Learning
           </p>
           <h2 className="mt-4 text-3xl font-semibold tracking-tight text-neutral-950">
-            결과와 배운 점을 정리하는 영역
+            결과와 배운 점
           </h2>
           <p className="mt-4 max-w-3xl text-base leading-7 text-neutral-600">
-            프로젝트의 실제 결과, 지표, 의사결정 배경, 개인적으로 배운 점을 정리할 수 있는 placeholder입니다. 지금은 구조를 먼저 만들고, 이후 케이스 스터디의 깊이를 차근차근 채우면 됩니다.
+            제품의 사용 맥락과 운영 조건을 함께 보며, 화면 설계가 실제 서비스 흐름과 연결될 때 더 오래 작동한다는 점을 확인한 프로젝트입니다. 정량 지표와 상세 산출물은 케이스 스터디 정리 단계에서 업데이트합니다.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
             {project.focus.map((item) => (
