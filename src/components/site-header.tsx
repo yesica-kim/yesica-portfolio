@@ -5,18 +5,16 @@ import { usePathname } from "next/navigation";
 
 const navItems = {
   ko: [
-    { href: "/#projects", label: "프로젝트" },
-    { href: "/#about", label: "소개" },
-    { href: "/#experience", label: "경험" },
-    { href: "/#thinking", label: "생각" },
-    { href: "/#writing", label: "브런치" },
+    { href: "/#projects", label: "Works" },
+    { href: "/#about", label: "About" },
+    { href: "/#experience", label: "Experience" },
+    { href: "/#writing", label: "brunch" },
   ],
   en: [
-    { href: "/en#projects", label: "Projects" },
+    { href: "/en#projects", label: "Works" },
     { href: "/en#about", label: "About" },
     { href: "/en#experience", label: "Experience" },
-    { href: "/en#thinking", label: "Thinking" },
-    { href: "/en#writing", label: "Writing" },
+    { href: "/en#writing", label: "brunch" },
   ],
 };
 
@@ -33,7 +31,7 @@ export function SiteHeader() {
             Yesica-Portfolio
           </span>
         </Link>
-        <nav className="hidden items-center justify-center gap-7 text-sm text-[#d9e1ea] md:flex lg:gap-9">
+        <nav className="hidden items-center justify-center gap-10 text-sm text-[#d9e1ea] md:flex lg:gap-14">
           {navItems[locale].map((item) => (
             <Link
               key={item.href}
@@ -65,9 +63,9 @@ export function SiteHeader() {
           </div>
           <Link
             href="/contact"
-            className="inline-flex h-11 items-center gap-3 rounded-full border border-white/12 bg-white/[0.06] px-5 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_14px_40px_rgba(0,0,0,0.32)] transition hover:border-[#5ef2c2]/40 hover:bg-white/[0.1]"
+            className="inline-flex h-11 items-center gap-3 rounded-full bg-[linear-gradient(120deg,#2147af,#5a8dff,#4de1c1)] px-5 text-sm font-semibold text-white shadow-[0_14px_38px_rgba(90,141,255,0.24)] transition hover:-translate-y-0.5 hover:shadow-[0_18px_46px_rgba(77,225,193,0.2)]"
           >
-            {isEnglish ? "Contact" : "문의하기"}
+            Contact
           </Link>
         </div>
       </div>

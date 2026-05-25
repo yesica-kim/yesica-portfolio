@@ -8,19 +8,19 @@ type Locale = "ko" | "en";
 
 const heroContent = {
   ko: {
-    eyebrow: "프로덕트 디자이너 / UI·UX 디자이너",
+    eyebrow: "Product Designer / UI·UX Designer",
     title: (
       <>
-        현실적인 서비스를 위한
+        서비스를 움직이는
         <br />
         <span className="bg-[linear-gradient(100deg,#5a8dff_0%,#4de1c1_72%,#5ef2c2_100%)] bg-clip-text text-transparent">
-          차분한 시스템을 설계합니다
+          시스템을 설계합니다
         </span>
       </>
     ),
     description:
-      "오랜 실무 경험을 바탕으로 웹, 모바일, 관리자 시스템을 설계해왔습니다. 지금은 AI와 협업하며 실제 제품을 직접 만들고 운영합니다.",
-    cta: "프로젝트 보기",
+      "웹, 모바일, 관리자 시스템을 넘나든 오랜 실무 경험과 AI와 함께 실제 제품을 만들고 운영해온 설계 경험",
+    cta: "View Projects",
     cards: [
       {
         title: "Schedule Block",
@@ -55,7 +55,7 @@ const heroContent = {
     ),
     description:
       "I design web, mobile, and admin systems with years of hands-on product experience. Today, I also build and operate small products with AI as a maker partner.",
-    cta: "View projects",
+    cta: "View Projects",
     cards: [
       {
         title: "Schedule Block",
@@ -97,30 +97,30 @@ export function HomeHero({ locale = "ko" }: { locale?: Locale }) {
   return (
     <section
       onMouseMove={handleMouseMove}
-      className="relative isolate overflow-hidden border-b border-white/[0.07] px-5 pb-16 pt-14 sm:px-8 lg:min-h-[calc(82vh-5rem)] lg:pb-24 lg:pt-20"
+      className="relative isolate overflow-hidden border-b border-white/[0.07] px-5 pb-20 pt-16 sm:px-8 lg:min-h-[calc(84vh-5rem)] lg:pb-32 lg:pt-28"
     >
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_74%_30%,rgba(90,141,255,0.18),transparent_30rem),radial-gradient(circle_at_88%_50%,rgba(77,225,193,0.1),transparent_24rem)]" />
       <div className="absolute left-[50%] top-[52%] -z-10 hidden h-[30rem] w-[58rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.06] lg:block" />
 
-      <div className="mx-auto grid w-full max-w-[1120px] gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <div className="mx-auto grid w-full max-w-[1120px] gap-20 lg:grid-cols-[1.04fr_0.96fr] lg:items-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.75, ease: "easeOut" }}
           className="relative z-10 max-w-3xl"
         >
-          <div className="mb-8 flex flex-wrap items-center gap-3">
-            <span className="text-sm font-medium text-[#c5ced8] sm:text-base">
+          <div className="mb-10 flex flex-wrap items-center gap-3">
+            <span className="text-[0.78rem] font-medium uppercase tracking-[0.14em] text-white/60 sm:text-sm">
               {content.eyebrow}
             </span>
           </div>
-          <h1 className="text-[clamp(2.9rem,5.2vw,5.05rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-[#f4f7fa]">
+          <h1 className="text-[clamp(2.85rem,4.8vw,4.65rem)] font-semibold leading-[1.08] tracking-[-0.042em] text-[#f4f7fa]">
             {content.title}
           </h1>
-          <p className="mt-8 max-w-2xl text-base leading-8 text-[#9ba8b5] sm:text-lg">
+          <p className="mt-12 max-w-xl text-base font-normal leading-[1.7] text-white/70 sm:text-lg">
             {content.description}
           </p>
-          <div className="mt-10 flex flex-wrap items-center gap-6">
+          <div className="mt-12 flex flex-wrap items-center gap-6">
             <Link
               href={locale === "en" ? "/en#projects" : "/#projects"}
               className="group inline-flex h-14 items-center gap-3 rounded-full bg-[linear-gradient(120deg,#183c98,#5a8dff,#4de1c1)] px-7 text-base font-semibold text-white shadow-[0_18px_50px_rgba(90,141,255,0.24)] transition hover:-translate-y-0.5"
