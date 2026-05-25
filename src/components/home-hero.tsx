@@ -84,9 +84,9 @@ export function HomeHero() {
             차분한 시스템을 설계합니다
           </p>
           <p className="mt-7 max-w-xl text-base leading-8 text-[#9ba8b5] sm:text-lg">
-            서비스 운영과 사용자 흐름을 함께 설계하며,
+            13년 동안 웹, 모바일, 관리자 시스템을 설계해왔습니다.
             <br className="hidden sm:block" />
-            AI와 협업해 실제 제품을 만들고 개선합니다.
+            현재는 AI와 협업하며 실제 제품을 직접 만들고 운영합니다.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-6">
             <Link

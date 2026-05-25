@@ -34,9 +34,41 @@ const processItems = [
 ];
 
 const introItems = [
-  ["13년차", "UI/UX와 제품 디자인을 기반으로 실제 서비스의 흐름을 설계해왔습니다."],
-  ["운영 경험", "사용자 화면뿐 아니라 관리자, 상태값, 결제와 같은 운영 구조까지 함께 봅니다."],
-  ["AI 협업", "아이디어 정리, 프로토타입, 구현 실험을 AI와 함께 빠르게 반복합니다."],
+  ["13년차 UI/UX", "웹, 모바일, 관리자 시스템을 오가며 서비스의 실제 사용 흐름을 설계해왔습니다."],
+  ["운영과 시스템", "사용자 화면뿐 아니라 상태값, 결제, 접수, 운영자 판단 화면까지 함께 봅니다."],
+  ["AI 협업 메이커", "개인 문제에서 출발한 제품을 AI와 함께 만들고 출시하며 운영 경험을 쌓고 있습니다."],
+];
+
+const experienceItems = [
+  {
+    period: "2021–2025",
+    company: "AnswersLab Korea",
+    points: [
+      "GGPoker 웹사이트 리뉴얼",
+      "PokerStake 운영 및 복잡한 참여 구조 UX",
+      "WSOP+ 앱/관리자 시스템 UIUX",
+    ],
+  },
+  {
+    period: "2019–2020",
+    company: "더우리샵",
+    points: ["관리자 시스템 기획", "검색광고 입찰 시스템 설계"],
+  },
+  {
+    period: "2016–2018",
+    company: "플레이니트",
+    points: ["브랜드/프로모션 디자인", "코웨이, SKT, 칭따오 등 브랜드 운영 경험"],
+  },
+  {
+    period: "2013–2015",
+    company: "제이넷",
+    points: ["공공기관/도서관 플랫폼 UIUX", "정보 접근성과 서비스 구조 설계"],
+  },
+  {
+    period: "2011–2013",
+    company: "초기 웹디자인 & HTML 퍼블리싱",
+    points: ["웹디자인 실무 시작", "HTML/CSS 기반 퍼블리싱 경험"],
+  },
 ];
 
 export default function Home() {
@@ -51,12 +83,12 @@ export default function Home() {
               About
             </p>
             <h2 className="mt-5 max-w-xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#f4f7fa] sm:text-5xl">
-              화면의 아름다움보다 오래 작동하는 제품의 구조에 집중합니다.
+              13년의 실무 경험 위에서 제품의 구조와 운영 흐름을 설계합니다.
             </h2>
           </FadeIn>
           <FadeIn delay={0.08}>
             <p className="max-w-2xl text-lg leading-9 text-[#aab6c3]">
-              복잡한 서비스 구조, 관리자페이지, 결제와 상태 흐름처럼 운영과 맞닿은 UX를 다루며, 개인 문제에서 출발한 제품을 직접 만들고 배포하는 실험도 이어가고 있습니다.
+              공공기관 플랫폼, 브랜드 운영, 글로벌 서비스, 관리자 시스템을 거치며 화면 너머의 운영 조건을 함께 다뤄왔습니다. 지금은 AI와 협업해 개인 제품을 직접 만들고 출시하는 독립 메이커 방향으로 확장하고 있습니다.
             </p>
             <div className="mt-10 grid gap-4 sm:grid-cols-3">
               {introItems.map(([title, body]) => (
@@ -70,6 +102,46 @@ export default function Home() {
               ))}
             </div>
           </FadeIn>
+        </div>
+      </section>
+
+      <section className="border-b border-white/[0.07] bg-[#060a0f]">
+        <div className="mx-auto w-full max-w-[1200px] px-5 py-28 sm:px-8 lg:py-36">
+          <FadeIn>
+            <SectionHeading
+              eyebrow="Experience"
+              title="13년의 경력은 다양한 서비스 구조를 통과해왔습니다"
+              description="웹디자인과 퍼블리싱으로 시작해 공공기관 플랫폼, 브랜드 운영, 관리자 시스템, 글로벌 포커 서비스와 개인 제품 출시까지 이어온 흐름입니다."
+            />
+          </FadeIn>
+          <div className="mt-14 grid gap-5">
+            {experienceItems.map((item, index) => (
+              <FadeIn
+                key={`${item.period}-${item.company}`}
+                delay={index * 0.04}
+                className="grid gap-6 rounded-[1.5rem] border border-white/[0.08] bg-white/[0.04] p-6 shadow-[0_18px_60px_rgba(0,0,0,0.18)] md:grid-cols-[12rem_1fr]"
+              >
+                <div>
+                  <p className="text-sm font-semibold text-[#5ef2c2]">
+                    {item.period}
+                  </p>
+                  <h3 className="mt-2 text-xl font-semibold text-white">
+                    {item.company}
+                  </h3>
+                </div>
+                <ul className="grid gap-3 text-sm leading-6 text-[#aab6c3] sm:grid-cols-2 lg:grid-cols-3">
+                  {item.points.map((point) => (
+                    <li
+                      key={point}
+                      className="rounded-2xl border border-white/[0.07] bg-black/10 px-4 py-3"
+                    >
+                      {point}
+                    </li>
+                  ))}
+                </ul>
+              </FadeIn>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -142,12 +214,17 @@ export default function Home() {
 
       <section className="mx-auto w-full max-w-[1200px] px-5 py-28 sm:px-8 lg:py-36">
         <FadeIn
-          className="rounded-[2rem] border border-white/[0.08] bg-white/[0.04] p-8 text-center shadow-[0_24px_80px_rgba(0,0,0,0.24)] sm:p-14"
+          className="grid gap-8 rounded-[2rem] border border-white/[0.08] bg-white/[0.04] p-8 shadow-[0_24px_80px_rgba(0,0,0,0.24)] sm:p-14 lg:grid-cols-[1fr_auto] lg:items-center"
         >
-          <p className="mx-auto max-w-2xl text-2xl font-semibold leading-10 tracking-[-0.025em] text-white sm:text-3xl">
-            프로젝트, 협업, 프리랜서 작업, 제품 디자인 관련 이야기를 환영합니다.
-          </p>
-          <div className="mt-8">
+          <div>
+            <p className="max-w-2xl text-2xl font-semibold leading-10 tracking-[-0.025em] text-white sm:text-3xl">
+              프로덕트 디자인, 관리자 시스템, 초기 서비스 UX 설계 작업을 받고 있습니다.
+            </p>
+            <p className="mt-4 text-base leading-7 text-[#9ba8b5]">
+              협업 범위와 일정은 메일로 공유해주시면 보통 1–2일 안에 확인해 답변드립니다.
+            </p>
+          </div>
+          <div>
             <ButtonLink href="/contact">연락하기</ButtonLink>
           </div>
         </FadeIn>

@@ -9,11 +9,11 @@ export default function ProjectsPage() {
       <FadeIn>
         <SectionHeading
           eyebrow="Projects"
-          title="채워 넣기 좋은 프로젝트 아카이브"
-          description="각 프로젝트는 데이터 파일에서 관리되며, 상세 페이지는 같은 템플릿으로 연결되어 있습니다."
+          title="실제 서비스와 개인 제품을 연결하는 프로젝트 아카이브"
+          description="운영 경험이 있는 서비스, 복잡한 비즈니스 UX, AI와 함께 만든 개인 제품을 중심으로 정리했습니다."
         />
       </FadeIn>
-      <div className="mt-10 grid gap-5 md:grid-cols-2">
+      <div className="mt-12 grid gap-8 md:grid-cols-2">
         {projects.map((project) => (
           <ProjectCard key={project.slug} project={project} />
         ))}

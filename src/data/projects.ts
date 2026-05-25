@@ -1,12 +1,17 @@
 export type Project = {
   slug: string;
   title: string;
+  subtitle: string;
   category: string[];
   description: string;
   role: string;
   platform: string;
   period: string;
   status: string;
+  outcome: string;
+  releaseInfo: string;
+  productUrl?: string;
+  productLabel?: string;
   accent: string;
   focus: string[];
   overview: string;
@@ -19,12 +24,17 @@ export const projects: Project[] = [
   {
     slug: "schedule-block",
     title: "Schedule Block",
+    subtitle: "Recovery-first scheduling system",
     category: ["Personal Product", "AI-built App", "Productivity"],
     description: "계획 실패의 감정 부담을 줄이는 일정 블록 앱",
     role: "Product Design, UI/UX, AI-assisted Development",
     platform: "App",
     period: "2026",
     status: "App Store Released",
+    outcome: "Google Calendar Sync · Auto Reschedule · App Store Released",
+    releaseInfo: "Official Page / Released",
+    productUrl: "/schedule-block",
+    productLabel: "제품 페이지",
     accent: "from-cyan-400 via-teal-400 to-emerald-400",
     focus: ["회복형 UX", "자동 미루기", "일정+할일 통합", "AI 협업 개발"],
     overview:
@@ -38,12 +48,15 @@ export const projects: Project[] = [
   {
     slug: "walla",
     title: "Walla Improvement",
+    subtitle: "Survey creation flow improvement",
     category: ["Product Design", "UX Research", "Survey Service"],
     description: "설문 제작 경험을 개선한 프로덕트 디자인 프로젝트",
     role: "UX Research, Product Design, UI Design",
     platform: "Web",
     period: "2025",
     status: "Case Study Draft",
+    outcome: "Survey Builder · IA Improvement · UX Writing",
+    releaseInfo: "Case Study Draft",
     accent: "from-sky-400 via-cyan-400 to-teal-400",
     focus: ["설문 제작 플로우 개선", "정보 구조 개선", "UX Writing", "흐름 단순화"],
     overview:
@@ -57,12 +70,15 @@ export const projects: Project[] = [
   {
     slug: "wsop-plus",
     title: "WSOP+",
+    subtitle: "Global poker tournament platform",
     category: ["Real Service", "App", "Admin", "Payment Flow"],
     description: "포커 대회 접수, 결제, 관리자 운영 시스템 설계",
     role: "UI/UX Design, App Design, Admin Design",
     platform: "App, Admin Web",
     period: "2025–2026",
     status: "Real Service",
+    outcome: "Mobile App + Admin System · Payment Flow · Service Operation",
+    releaseInfo: "Live Service",
     accent: "from-blue-400 via-cyan-400 to-emerald-400",
     focus: ["대회 접수/결제", "관리자페이지", "양면 사용자 경험", "상태값 관리"],
     overview:
@@ -76,12 +92,15 @@ export const projects: Project[] = [
   {
     slug: "pokerstake",
     title: "PokerStake",
+    subtitle: "Staking-based tournament participation UX",
     category: ["Web Service", "Complex Business UX"],
     description: "스테이킹 기반 포커 대회 참여 플랫폼 UX 설계",
     role: "UI/UX Design, Web Service Design",
     platform: "Web",
     period: "Case Study Draft",
     status: "Case Study Draft",
+    outcome: "Player / Backer Flow · Prize Pool IA · Trust-based UX",
+    releaseInfo: "Case Study Draft",
     accent: "from-indigo-400 via-sky-400 to-teal-400",
     focus: ["Player / Backer 관계", "스테이킹 흐름", "수익 분배 구조", "신뢰 기반 UX"],
     overview:
