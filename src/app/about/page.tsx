@@ -26,7 +26,7 @@ export default function AboutPage() {
         <SectionHeading
           eyebrow="About"
           title="현실의 흐름을 제품의 구조로 바꾸는 디자이너"
-          description="13년차 UI/UX 디자이너로서 웹, 모바일, 관리자 시스템을 오가며 실제 서비스와 운영 흐름을 함께 설계해왔습니다."
+          description="오랜 실무 경험을 바탕으로 웹, 모바일, 관리자 시스템을 오가며 실제 서비스와 운영 흐름을 함께 설계해왔습니다."
         />
       </FadeIn>
 

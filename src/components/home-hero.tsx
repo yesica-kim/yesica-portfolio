@@ -4,40 +4,83 @@ import Link from "next/link";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import type { MouseEvent } from "react";
 
-const cards = [
-  {
-    title: "Schedule Block",
-    badge: "Live Product",
-    description:
-      "계획이 밀린 뒤에도 다시 회복할 수 있도록 설계한 일정 블록 앱",
-    cta: "케이스 보기",
-    href: "/projects/schedule-block",
-    className: "",
-    visual: "schedule",
-  },
-  {
-    title: "AI Workflow",
-    badge: "Maker System",
-    description:
-      "아이디어 정리부터 프로토타입과 자동화까지 빠르게 반복하는 개인 작업 시스템",
-    cta: "흐름 보기",
-    href: "/projects",
-    className: "lg:translate-x-10",
-    visual: "workflow",
-  },
-  {
-    title: "Service Systems",
-    badge: "Real Service",
-    description:
-      "사용자 화면과 관리자 운영 흐름을 함께 보는 실무형 제품 설계",
-    cta: "작업 보기",
-    href: "/projects",
-    className: "lg:-translate-x-6",
-    visual: "systems",
-  },
-];
+type Locale = "ko" | "en";
 
-export function HomeHero() {
+const heroContent = {
+  ko: {
+    eyebrow: "프로덕트 디자이너 / UI·UX 디자이너",
+    title: (
+      <>
+        현실적인 서비스를 위한
+        <br />
+        <span className="bg-[linear-gradient(100deg,#5a8dff_0%,#4de1c1_72%,#5ef2c2_100%)] bg-clip-text text-transparent">
+          차분한 시스템을 설계합니다
+        </span>
+      </>
+    ),
+    description:
+      "오랜 실무 경험을 바탕으로 웹, 모바일, 관리자 시스템을 설계해왔습니다. 지금은 AI와 협업하며 실제 제품을 직접 만들고 운영합니다.",
+    cta: "프로젝트 보기",
+    cards: [
+      {
+        title: "Schedule Block",
+        badge: "출시 제품",
+        description: "계획이 밀린 뒤에도 다시 회복할 수 있도록 설계한 일정 블록 앱",
+        cta: "케이스 보기",
+        href: "/projects/schedule-block",
+        className: "",
+        visual: "schedule",
+      },
+      {
+        title: "AI Workflow",
+        badge: "작업 시스템",
+        description: "아이디어 정리부터 프로토타입과 자동화까지 빠르게 반복하는 개인 작업 시스템",
+        cta: "흐름 보기",
+        href: "/projects",
+        className: "lg:translate-x-6",
+        visual: "workflow",
+      },
+    ],
+  },
+  en: {
+    eyebrow: "Product Designer / UI·UX Designer",
+    title: (
+      <>
+        Designing calm systems
+        <br />
+        <span className="bg-[linear-gradient(100deg,#5a8dff_0%,#4de1c1_72%,#5ef2c2_100%)] bg-clip-text text-transparent">
+          for real life products
+        </span>
+      </>
+    ),
+    description:
+      "I design web, mobile, and admin systems with years of hands-on product experience. Today, I also build and operate small products with AI as a maker partner.",
+    cta: "View projects",
+    cards: [
+      {
+        title: "Schedule Block",
+        badge: "Live Product",
+        description: "A recovery-first scheduling app with calendar sync and rescheduling flows.",
+        cta: "View case",
+        href: "/projects/schedule-block",
+        className: "",
+        visual: "schedule",
+      },
+      {
+        title: "AI Workflow",
+        badge: "Maker System",
+        description: "A personal workflow for moving from ideas to prototypes and automation quickly.",
+        cta: "View flow",
+        href: "/en#thinking",
+        className: "lg:translate-x-6",
+        visual: "workflow",
+      },
+    ],
+  },
+};
+
+export function HomeHero({ locale = "ko" }: { locale?: Locale }) {
+  const content = heroContent[locale];
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
   const smoothX = useSpring(mouseX, { stiffness: 80, damping: 24 });
@@ -54,12 +97,12 @@ export function HomeHero() {
   return (
     <section
       onMouseMove={handleMouseMove}
-      className="relative isolate overflow-hidden border-b border-white/[0.07] px-5 pb-16 pt-14 sm:px-8 lg:min-h-[calc(88vh-5rem)] lg:pb-20 lg:pt-16"
+      className="relative isolate overflow-hidden border-b border-white/[0.07] px-5 pb-16 pt-14 sm:px-8 lg:min-h-[calc(82vh-5rem)] lg:pb-24 lg:pt-20"
     >
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_74%_30%,rgba(90,141,255,0.18),transparent_30rem),radial-gradient(circle_at_88%_50%,rgba(77,225,193,0.1),transparent_24rem)]" />
       <div className="absolute left-[50%] top-[52%] -z-10 hidden h-[30rem] w-[58rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.06] lg:block" />
 
-      <div className="mx-auto grid w-full max-w-[1200px] gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+      <div className="mx-auto grid w-full max-w-[1120px] gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
@@ -68,32 +111,21 @@ export function HomeHero() {
         >
           <div className="mb-8 flex flex-wrap items-center gap-3">
             <span className="text-sm font-medium text-[#c5ced8] sm:text-base">
-              Product Designer / UI/UX Designer
+              {content.eyebrow}
             </span>
           </div>
-          <h1 className="text-[clamp(3.15rem,6.2vw,5.8rem)] font-semibold leading-[0.98] tracking-[-0.05em] text-[#f4f7fa]">
-            Designing calm systems
-            <br />
-            <span className="bg-[linear-gradient(100deg,#5a8dff_0%,#4de1c1_72%,#5ef2c2_100%)] bg-clip-text text-transparent">
-              for real life products
-            </span>
+          <h1 className="text-[clamp(2.9rem,5.2vw,5.05rem)] font-semibold leading-[1.02] tracking-[-0.045em] text-[#f4f7fa]">
+            {content.title}
           </h1>
-          <p className="mt-8 text-[clamp(1.65rem,3vw,2.7rem)] font-semibold leading-[1.18] tracking-[-0.035em] text-[#eef4f7]">
-            현실적인 서비스를 위한
-            <br />
-            차분한 시스템을 설계합니다
-          </p>
-          <p className="mt-7 max-w-xl text-base leading-8 text-[#9ba8b5] sm:text-lg">
-            13년 동안 웹, 모바일, 관리자 시스템을 설계해왔습니다.
-            <br className="hidden sm:block" />
-            현재는 AI와 협업하며 실제 제품을 직접 만들고 운영합니다.
+          <p className="mt-8 max-w-2xl text-base leading-8 text-[#9ba8b5] sm:text-lg">
+            {content.description}
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-6">
             <Link
-              href="/projects"
+              href={locale === "en" ? "/en#projects" : "/#projects"}
               className="group inline-flex h-14 items-center gap-3 rounded-full bg-[linear-gradient(120deg,#183c98,#5a8dff,#4de1c1)] px-7 text-base font-semibold text-white shadow-[0_18px_50px_rgba(90,141,255,0.24)] transition hover:-translate-y-0.5"
             >
-              프로젝트 보기
+              {content.cta}
               <span className="transition group-hover:translate-x-1">→</span>
             </Link>
           </div>
@@ -104,9 +136,9 @@ export function HomeHero() {
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.12 }}
-          className="relative z-10 grid gap-5 lg:origin-center lg:scale-[0.88] lg:pl-8"
+          className="relative z-10 grid gap-5 lg:origin-center lg:scale-[0.9] lg:pl-8"
         >
-          {cards.map((card, index) => (
+          {content.cards.map((card, index) => (
             <ProductFloatCard key={card.title} index={index} {...card} />
           ))}
         </motion.div>
