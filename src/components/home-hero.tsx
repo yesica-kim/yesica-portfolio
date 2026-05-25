@@ -1,7 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import {
+  motion,
+  useMotionTemplate,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import type { MouseEvent } from "react";
 
 type Locale = "ko" | "en";
@@ -87,6 +93,9 @@ export function HomeHero({ locale = "ko" }: { locale?: Locale }) {
   const smoothY = useSpring(mouseY, { stiffness: 80, damping: 24 });
   const cardX = useTransform(smoothX, [-0.5, 0.5], [-10, 10]);
   const cardY = useTransform(smoothY, [-0.5, 0.5], [-8, 8]);
+  const spotlightX = useTransform(smoothX, [-0.5, 0.5], ["38%", "62%"]);
+  const spotlightY = useTransform(smoothY, [-0.5, 0.5], ["30%", "58%"]);
+  const spotlightBackground = useMotionTemplate`radial-gradient(520px circle at ${spotlightX} ${spotlightY}, rgba(77,225,193,0.12), rgba(90,141,255,0.06) 34%, transparent 72%)`;
 
   function handleMouseMove(event: MouseEvent<HTMLElement>) {
     const rect = event.currentTarget.getBoundingClientRect();
@@ -100,6 +109,11 @@ export function HomeHero({ locale = "ko" }: { locale?: Locale }) {
       className="relative isolate overflow-hidden border-b border-white/[0.07] px-5 pb-20 pt-16 sm:px-8 lg:min-h-[calc(84vh-5rem)] lg:pb-32 lg:pt-28"
     >
       <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_74%_30%,rgba(90,141,255,0.18),transparent_30rem),radial-gradient(circle_at_88%_50%,rgba(77,225,193,0.1),transparent_24rem)]" />
+      <motion.div
+        aria-hidden="true"
+        style={{ background: spotlightBackground }}
+        className="pointer-events-none absolute inset-0 -z-10 opacity-80"
+      />
       <div className="absolute left-[50%] top-[52%] -z-10 hidden h-[30rem] w-[58rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.06] lg:block" />
 
       <div className="mx-auto grid w-full max-w-[1120px] gap-20 lg:grid-cols-[1.04fr_0.96fr] lg:items-center">
@@ -109,12 +123,12 @@ export function HomeHero({ locale = "ko" }: { locale?: Locale }) {
           transition={{ duration: 0.75, ease: "easeOut" }}
           className="relative z-10 max-w-3xl"
         >
-          <div className="mb-10 flex flex-wrap items-center gap-3">
+          <div className="mb-5 flex flex-wrap items-center gap-3">
             <span className="text-[0.78rem] font-medium uppercase tracking-[0.14em] text-white/60 sm:text-sm">
               {content.eyebrow}
             </span>
           </div>
-          <h1 className="text-[clamp(2.85rem,4.8vw,4.65rem)] font-semibold leading-[1.08] tracking-[-0.042em] text-[#f4f7fa]">
+          <h1 className="text-[clamp(2.6rem,3.9vw,3.9rem)] font-semibold leading-[1.16] tracking-normal text-[#f4f7fa]">
             {content.title}
           </h1>
           <p className="mt-12 max-w-xl text-base font-normal leading-[1.7] text-white/70 sm:text-lg">
