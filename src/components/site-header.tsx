@@ -27,7 +27,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b border-white/[0.06] bg-[#060a0f]/78 backdrop-blur-xl">
       <div className="mx-auto grid h-20 w-full max-w-[1120px] grid-cols-[1fr_auto_1fr] items-center px-5 sm:px-8">
         <Link href={isEnglish ? "/en" : "/"} className="group flex items-center gap-2.5">
-          <span className="text-base font-semibold tracking-[-0.03em] text-white">
+          <span className="whitespace-nowrap text-sm font-semibold tracking-[-0.03em] text-white sm:text-base">
             Yesica-Portfolio
           </span>
         </Link>

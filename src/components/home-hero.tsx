@@ -128,7 +128,7 @@ export function HomeHero({ locale = "ko" }: { locale?: Locale }) {
               {content.eyebrow}
             </span>
           </div>
-          <h1 className="text-[clamp(2.6rem,3.9vw,3.9rem)] font-semibold leading-[1.16] tracking-normal text-[#f4f7fa]">
+          <h1 className="text-[clamp(2rem,9.4vw,3.9rem)] font-semibold leading-[1.16] tracking-normal text-[#f4f7fa] sm:text-[clamp(2.6rem,3.9vw,3.9rem)]">
             {content.title}
           </h1>
           <p className="mt-12 max-w-xl text-base font-normal leading-[1.7] text-white/70 sm:text-lg">
