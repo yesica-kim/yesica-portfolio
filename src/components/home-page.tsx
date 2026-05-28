@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { FadeIn } from "@/components/motion";
 import { HomeHero } from "@/components/home-hero";
 
@@ -14,9 +15,16 @@ const page = {
     },
     about: {
       eyebrow: "About",
-      title: "Product Design · Admin UX · Service Operations · AI Collaboration",
-      body:
-        "사용자 화면을 그리는 일에서 멈추지 않고, 운영자가 판단하고 서비스가 유지되는 흐름까지 설계합니다.",
+      title: "사용자 화면과 운영 흐름을 함께 설계합니다",
+      body: (
+        <>
+          10년 이상의 실무 경험을 바탕으로
+          <br />
+          웹, 모바일, 관리자 시스템, 국내외 서비스 운영 경험을 쌓아왔습니다.
+          <br />
+          최근에는 AI와 협업하며 직접 제품을 만들고 운영하고 있습니다.
+        </>
+      ),
     },
     experience: {
       eyebrow: "Experience",
@@ -47,9 +55,16 @@ const page = {
     },
     about: {
       eyebrow: "About",
-      title: "Product Design · Admin UX · Service Operations · AI Collaboration",
-      body:
-        "I design beyond user-facing screens, connecting the decisions operators make with the flows that keep services running.",
+      title: "Designing user-facing products and the operations behind them",
+      body: (
+        <>
+          With more than a decade of hands-on experience, I have worked across
+          <br />
+          web, mobile, admin systems, and local/global service operations.
+          <br />
+          Recently, I have been building and operating products directly with AI.
+        </>
+      ),
     },
     experience: {
       eyebrow: "Experience",
@@ -82,7 +97,7 @@ const works = {
       platform: "iOS",
       status: "Live Product",
       description:
-        "일정이 밀린 뒤에도 다시 회복할 수 있도록 Google Calendar Sync와 Auto Rescheduling 흐름을 설계했습니다.",
+        "앱 출시, Google Calendar 연동, 일정 회복 시나리오까지 직접 설계하며 실제 사용자가 매일 쓰는 개인 생산성 흐름을 만들었습니다.",
       keywords: ["Google Calendar Sync", "Auto Rescheduling", "Personal Productivity"],
       href: "/projects/schedule-block",
       visual: "calendar",
@@ -132,7 +147,7 @@ const works = {
       platform: "iOS",
       status: "Live Product",
       description:
-        "Designed Google Calendar Sync and Auto Rescheduling flows so people can recover after plans slip.",
+        "Designed and shipped a personal productivity flow across app release, Google Calendar sync, and recovery scenarios after plans slip.",
       keywords: ["Google Calendar Sync", "Auto Rescheduling", "Personal Productivity"],
       href: "/projects/schedule-block",
       visual: "calendar",
@@ -242,8 +257,8 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
     <main className="bg-white text-[#111111]">
       <HomeHero locale={locale} />
 
-      <section id="projects" className="border-t border-[#E6E9EE] bg-[#FAFBFC] px-5 py-20 sm:px-8 lg:py-28">
-        <div className="mx-auto w-full max-w-[1120px]">
+      <section id="projects" className="border-t border-[#D8DEE6] bg-[#FAFBFC] px-5 py-20 sm:px-8 lg:py-28">
+        <div className="mx-auto w-full max-w-[1240px]">
           <FadeIn>
             <SectionIntro
               eyebrow={t.works.eyebrow}
@@ -251,10 +266,10 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
               description={t.works.description}
             />
           </FadeIn>
-          <div className="mt-14 grid gap-12">
+          <div className="mt-16 grid gap-16">
             {works[locale].map((work, index) => (
               <FadeIn key={work.name} delay={index * 0.03}>
-                <ProjectShowcase work={work} index={index} />
+                <ProjectShowcase work={work} index={index} locale={locale} />
               </FadeIn>
             ))}
           </div>
@@ -262,21 +277,21 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
       </section>
 
       <section id="about" className="bg-white px-5 py-20 text-center sm:px-8 lg:py-28">
-        <FadeIn className="mx-auto max-w-[860px]">
-          <p className="text-sm font-semibold tracking-[0.18em] text-[#777777] uppercase">
+        <FadeIn className="mx-auto max-w-[920px]">
+          <p className="text-sm font-semibold tracking-[0.18em] text-[#666666] uppercase">
             {t.about.eyebrow}
           </p>
           <h2 className="mt-6 text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#111111] sm:text-5xl">
             {t.about.title}
           </h2>
-          <p className="mx-auto mt-8 max-w-2xl text-lg leading-8 text-[#444444]">
+          <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-[#333333] sm:text-xl sm:leading-9">
             {t.about.body}
           </p>
         </FadeIn>
       </section>
 
       <section id="experience" className="bg-[#F5F7FA] px-5 py-20 sm:px-8 lg:py-28">
-        <div className="mx-auto grid w-full max-w-[1120px] gap-12 lg:grid-cols-[0.35fr_0.65fr]">
+        <div className="mx-auto grid w-full max-w-[1240px] gap-12 lg:grid-cols-[0.32fr_0.68fr]">
           <FadeIn>
             <SectionIntro eyebrow={t.experience.eyebrow} title={t.experience.title} />
           </FadeIn>
@@ -291,7 +306,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
       </section>
 
       <section id="writing" className="bg-white px-5 py-20 sm:px-8 lg:py-28">
-        <div className="mx-auto grid w-full max-w-[1120px] gap-12 lg:grid-cols-[0.45fr_0.55fr] lg:items-start">
+        <div className="mx-auto grid w-full max-w-[1240px] gap-12 lg:grid-cols-[0.45fr_0.55fr] lg:items-start">
           <FadeIn>
             <SectionIntro
               eyebrow={t.brunch.eyebrow}
@@ -304,11 +319,11 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
               href="/writing"
               className="block border-y border-[#111111] py-8 transition hover:border-[#5A8DFF]"
             >
-              <p className="text-sm font-medium text-[#777777]">{t.brunch.meta}</p>
+              <p className="text-sm font-medium text-[#666666]">{t.brunch.meta}</p>
               <h3 className="mt-5 text-3xl font-semibold tracking-[-0.035em] text-[#111111]">
                 {t.brunch.articleTitle}
               </h3>
-              <p className="mt-5 text-base leading-7 text-[#444444]">
+              <p className="mt-5 text-base leading-7 text-[#333333]">
                 {t.brunch.articleDescription}
               </p>
               <p className="mt-8 text-sm font-semibold text-[#111111]">
@@ -320,7 +335,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
       </section>
 
       <section id="contact" className="bg-[#FAFBFC] px-5 py-20 sm:px-8 lg:py-28">
-        <FadeIn className="mx-auto max-w-[1120px]">
+        <FadeIn className="mx-auto max-w-[1240px]">
           <div className="grid gap-8 border-t border-[#111111] pt-10 lg:grid-cols-[1fr_auto] lg:items-center">
             <p className="max-w-3xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#111111] sm:text-5xl">
               {t.contact.title}
@@ -349,14 +364,14 @@ function SectionIntro({
 }) {
   return (
     <div>
-      <p className="text-sm font-semibold tracking-[0.18em] text-[#777777] uppercase">
+      <p className="text-sm font-semibold tracking-[0.18em] text-[#666666] uppercase">
         {eyebrow}
       </p>
       <h2 className="mt-4 max-w-3xl text-4xl font-semibold leading-tight tracking-[-0.04em] text-[#111111] sm:text-6xl">
         {title}
       </h2>
       {description ? (
-        <p className="mt-5 max-w-2xl text-base leading-7 text-[#444444] sm:text-lg">
+        <p className="mt-5 max-w-2xl text-base leading-7 text-[#333333] sm:text-lg">
           {description}
         </p>
       ) : null}
@@ -367,6 +382,7 @@ function SectionIntro({
 function ProjectShowcase({
   work,
   index,
+  locale,
 }: {
   work: {
     name: string;
@@ -380,32 +396,44 @@ function ProjectShowcase({
     visual: string;
   };
   index: number;
+  locale: Locale;
 }) {
   const reversed = index % 2 === 1;
+  const featured = index === 0;
 
   return (
     <Link
       href={work.href}
-      className={`grid gap-8 border-t border-[#DDE3EA] pt-10 transition hover:border-[#5A8DFF] lg:grid-cols-[0.52fr_0.48fr] lg:items-start ${
+      className={`grid gap-10 border-t transition hover:border-[#5A8DFF] ${
+        featured
+          ? "border-[#111111] pt-12 lg:grid-cols-[0.62fr_0.38fr] lg:items-center"
+          : "border-[#D5DAE0] pt-10 lg:grid-cols-[0.52fr_0.48fr] lg:items-start"
+      } ${
         reversed ? "lg:[&>*:first-child]:order-2" : ""
       }`}
     >
-      <ProjectVisual type={work.visual} />
-      <div className="max-w-xl">
-        <p className="text-sm font-medium text-[#777777]">{work.status}</p>
-        <h3 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-[#111111] sm:text-5xl">
+      <ProjectVisual type={work.visual} featured={featured} />
+      <div className={featured ? "max-w-lg lg:pl-4" : "max-w-xl"}>
+        <p className="text-sm font-semibold text-[#5A8DFF]">
+          {featured ? (locale === "ko" ? "대표 프로젝트" : "Representative Work") : work.status}
+        </p>
+        <h3
+          className={`mt-4 font-semibold tracking-[-0.045em] text-[#111111] ${
+            featured ? "text-5xl sm:text-6xl" : "text-4xl sm:text-5xl"
+          }`}
+        >
           {work.name}
         </h3>
-        <p className="mt-4 text-xl leading-8 text-[#444444]">{work.summary}</p>
-        <p className="mt-6 text-base leading-7 text-[#444444]">{work.description}</p>
-        <dl className="mt-8 grid gap-5 sm:grid-cols-3">
+        <p className="mt-5 text-2xl leading-9 text-[#222222]">{work.summary}</p>
+        <p className="mt-6 text-base leading-8 text-[#333333]">{work.description}</p>
+        <dl className="mt-9 grid gap-5 sm:grid-cols-3">
           <Meta label="Role" value={work.role} />
           <Meta label="Platform" value={work.platform} />
           <Meta label="Status" value={work.status} />
         </dl>
         <div className="mt-8 flex flex-wrap gap-2">
           {work.keywords.map((keyword) => (
-            <span key={keyword} className="border border-[#DDE3EA] px-3 py-1 text-xs text-[#777777]">
+            <span key={keyword} className="border border-[#D5DAE0] bg-white px-3 py-1 text-xs font-medium text-[#444444]">
               {keyword}
             </span>
           ))}
@@ -415,30 +443,101 @@ function ProjectShowcase({
   );
 }
 
-function ProjectVisual({ type }: { type: string }) {
+function ProjectVisual({ type, featured = false }: { type: string; featured?: boolean }) {
   return (
-    <div className="bg-white p-4 shadow-[0_18px_55px_rgba(17,17,17,0.08)]">
-      <div className="aspect-[4/3] bg-[#F5F7FA] p-5">
-        {type === "admin" ? <AdminPreview /> : type === "mobile" ? <MobilePreview /> : type === "web" ? <WebPreview /> : <CalendarPreview />}
+    <div className="bg-white p-3 shadow-[0_22px_70px_rgba(17,17,17,0.11)] sm:p-5">
+      <div className={`${featured ? "min-h-[520px]" : "aspect-[4/3]"} bg-[#EEF2F5] p-5 sm:p-7`}>
+        {type === "admin" ? (
+          <AdminPreview />
+        ) : type === "mobile" ? (
+          <MobilePreview />
+        ) : type === "web" ? (
+          <WebPreview />
+        ) : (
+          <CalendarPreview featured={featured} />
+        )}
       </div>
     </div>
   );
 }
 
-function CalendarPreview() {
+function CalendarPreview({ featured = false }: { featured?: boolean }) {
   return (
-    <div className="h-full bg-white p-5">
-      <div className="mb-5 flex items-center justify-between border-b border-[#E8ECF1] pb-4">
-        <div className="h-3 w-36 bg-[#111111]" />
-        <div className="h-7 w-20 border border-[#DDE3EA]" />
-      </div>
-      <div className="grid gap-3">
-        {["Focus block", "Calendar sync", "Auto reschedule"].map((item, index) => (
-          <div key={item} className="grid grid-cols-[4rem_1fr] border border-[#E8ECF1] p-3 text-sm">
-            <span className="text-[#777777]">{index + 9}:00</span>
-            <span className="font-medium text-[#111111]">{item}</span>
+    <div className="grid h-full gap-5 lg:grid-cols-[0.72fr_0.28fr]">
+      <div className="bg-white shadow-[0_18px_45px_rgba(17,17,17,0.08)]">
+        <div className="flex items-center justify-between border-b border-[#E2E6EB] px-5 py-5">
+          <div className="flex items-center gap-3">
+            <Image
+              src="/schedule-block/app-icon.png"
+              alt=""
+              width={featured ? 46 : 38}
+              height={featured ? 46 : 38}
+              className="rounded-xl"
+            />
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#666666]">
+                Schedule Block
+              </p>
+              <p className="mt-1 text-xl font-semibold tracking-[-0.04em] text-[#111111]">
+                Today recovery plan
+              </p>
+            </div>
           </div>
-        ))}
+          <span className="hidden bg-[#EEF4FF] px-3 py-1 text-xs font-semibold text-[#315EDB] sm:inline-flex">
+            Live
+          </span>
+        </div>
+        <div className="grid gap-3 bg-[#FAFBFC] p-5">
+          {[
+            ["09:00", "Deep work block", "Protected focus time", "Synced"],
+            ["11:30", "Design review", "Google Calendar", "Updated"],
+            ["14:00", "OAuth QA check", "Moved after delay", "AI suggested"],
+            ["16:30", "Release notes", "End-of-day recovery", "Ready"],
+          ].map(([time, title, note, status], index) => (
+            <div
+              key={title}
+              className="grid gap-3 bg-white p-4 shadow-[0_8px_22px_rgba(17,17,17,0.045)] sm:grid-cols-[4.5rem_1fr_auto] sm:items-center"
+            >
+              <span className="text-sm font-semibold text-[#555555]">{time}</span>
+              <span>
+                <span className="block text-base font-semibold text-[#111111]">{title}</span>
+                <span className="mt-1 block text-sm text-[#555555]">{note}</span>
+              </span>
+              <span className={index === 2 ? "text-xs font-semibold text-[#5A8DFF]" : "text-xs font-semibold text-[#555555]"}>
+                {status}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="grid gap-4">
+        <div className="bg-white p-4 shadow-[0_14px_35px_rgba(17,17,17,0.075)]">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#666666]">
+            Calendar Sync
+          </p>
+          <p className="mt-3 text-3xl font-semibold tracking-[-0.05em] text-[#111111]">94%</p>
+          <p className="mt-2 text-sm leading-6 text-[#444444]">
+            Connected events kept consistent across devices.
+          </p>
+        </div>
+        <div className="bg-[#111111] p-4 text-white shadow-[0_14px_35px_rgba(17,17,17,0.14)]">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#AEB6C2]">
+            Auto Reschedule
+          </p>
+          <p className="mt-3 text-2xl font-semibold tracking-[-0.045em]">
+            3 blocks recovered
+          </p>
+          <div className="mt-5 grid grid-cols-4 gap-1">
+            {[58, 78, 42, 90].map((height, index) => (
+              <div key={index} className="flex h-16 items-end bg-[#2A2F36]">
+                <div
+                  className={index === 3 ? "w-full bg-[#5A8DFF]" : "w-full bg-[#D7DDE5]"}
+                  style={{ height: `${height}%` }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -446,22 +545,50 @@ function CalendarPreview() {
 
 function AdminPreview() {
   return (
-    <div className="grid h-full grid-cols-[5rem_1fr] gap-4 bg-white p-5">
-      <div className="grid content-start gap-2">
-        {["Entry", "Payment", "Status", "User"].map((item) => (
-          <div key={item} className="border border-[#E8ECF1] px-2 py-2 text-xs text-[#777777]">
+    <div className="grid h-full grid-cols-[5rem_1fr] gap-4 bg-white p-4 shadow-[0_14px_35px_rgba(17,17,17,0.07)] sm:grid-cols-[8rem_1fr] sm:p-5">
+      <div className="grid content-start gap-2 border-r border-[#E2E6EB] pr-3">
+        {["Entry", "Payment", "Status", "User"].map((item, index) => (
+          <div
+            key={item}
+            className={
+              index === 2
+                ? "bg-[#111111] px-2 py-2 text-xs font-semibold text-white"
+                : "bg-[#F4F6F8] px-2 py-2 text-xs font-semibold text-[#444444]"
+            }
+          >
             {item}
           </div>
         ))}
       </div>
-      <div className="grid gap-3">
-        <div className="h-16 bg-[#EEF2F6]" />
-        <div className="grid grid-cols-3 gap-3">
-          <div className="h-20 bg-[#F5F7FA]" />
-          <div className="h-20 bg-[#F5F7FA]" />
-          <div className="h-20 bg-[#EAF0FF]" />
+      <div className="grid gap-4">
+        <div className="flex items-center justify-between border-b border-[#E2E6EB] pb-4">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#666666]">
+              Tournament Ops
+            </p>
+            <p className="mt-1 text-xl font-semibold tracking-[-0.04em] text-[#111111]">
+              WSOP+ Admin
+            </p>
+          </div>
+          <span className="bg-[#EEF4FF] px-3 py-1 text-xs font-semibold text-[#315EDB]">
+            Live Service
+          </span>
         </div>
-        <div className="flex-1 bg-[#F5F7FA]" />
+        <div className="grid grid-cols-3 gap-3">
+          {["2,418 Entries", "376 Pending", "98.2% Paid"].map((item) => (
+            <div key={item} className="bg-[#F5F7FA] p-3 text-sm font-semibold text-[#111111]">
+              {item}
+            </div>
+          ))}
+        </div>
+        <div className="grid gap-2">
+          {["Player verification", "Payment exception", "Seat assignment"].map((item) => (
+            <div key={item} className="grid grid-cols-[1fr_auto] bg-[#FAFBFC] px-3 py-3 text-sm">
+              <span className="font-medium text-[#222222]">{item}</span>
+              <span className="text-[#666666]">Review</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -469,13 +596,32 @@ function AdminPreview() {
 
 function WebPreview() {
   return (
-    <div className="h-full bg-white p-5">
-      <div className="mb-6 h-10 border-b border-[#E8ECF1]" />
+    <div className="h-full bg-white p-5 shadow-[0_14px_35px_rgba(17,17,17,0.07)]">
+      <div className="mb-6 flex items-center justify-between border-b border-[#E2E6EB] pb-4">
+        <p className="text-xl font-semibold tracking-[-0.04em] text-[#111111]">
+          GGPoker / PokerStake
+        </p>
+        <span className="text-xs font-semibold text-[#666666]">Global Web</span>
+      </div>
       <div className="grid grid-cols-[1fr_0.7fr] gap-4">
-        <div className="h-44 bg-[#F5F7FA]" />
+        <div className="bg-[#111111] p-5 text-white">
+          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#AEB6C2]">
+            Player Flow
+          </p>
+          <p className="mt-4 text-3xl font-semibold tracking-[-0.05em]">
+            Trust before action
+          </p>
+          <div className="mt-8 h-2 w-full bg-[#333943]">
+            <div className="h-full w-3/4 bg-[#5A8DFF]" />
+          </div>
+        </div>
         <div className="grid gap-3">
-          <div className="bg-[#EAF0FF]" />
-          <div className="bg-[#F5F7FA]" />
+          <div className="bg-[#EEF4FF] p-4 text-sm font-semibold text-[#111111]">
+            Backer relation
+          </div>
+          <div className="bg-[#F5F7FA] p-4 text-sm font-semibold text-[#111111]">
+            Promotion ops
+          </div>
         </div>
       </div>
     </div>
@@ -484,14 +630,23 @@ function WebPreview() {
 
 function MobilePreview() {
   return (
-    <div className="grid h-full place-items-center bg-white">
-      <div className="h-64 w-36 rounded-[2rem] border border-[#DDE3EA] bg-[#FAFBFC] p-3">
-        <div className="mx-auto h-1.5 w-10 rounded-full bg-[#DDE3EA]" />
-        <div className="mt-6 h-20 bg-[#EAF0FF]" />
-        <div className="mt-3 grid gap-2">
-          <div className="h-8 bg-white" />
-          <div className="h-8 bg-white" />
-          <div className="h-8 bg-white" />
+    <div className="grid h-full place-items-center bg-white shadow-[0_14px_35px_rgba(17,17,17,0.07)]">
+      <div className="h-72 w-40 rounded-[2rem] border border-[#C9D0D9] bg-[#111111] p-2 shadow-[0_20px_45px_rgba(17,17,17,0.16)]">
+        <div className="h-full rounded-[1.55rem] bg-white p-3">
+          <div className="mx-auto h-1.5 w-10 rounded-full bg-[#D5DAE0]" />
+          <div className="mt-5 bg-[#EEF4FF] p-3">
+            <p className="text-xs font-semibold text-[#315EDB]">mobimobi</p>
+            <p className="mt-2 text-lg font-semibold tracking-[-0.04em] text-[#111111]">
+              Small product lab
+            </p>
+          </div>
+          <div className="mt-3 grid gap-2">
+            {["Idea", "Flow", "Brand"].map((item) => (
+              <div key={item} className="bg-[#F5F7FA] px-3 py-2 text-xs font-semibold text-[#333333]">
+                {item}
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
@@ -510,32 +665,31 @@ function ExperienceBlock({
   };
 }) {
   return (
-    <article className="border-t border-[#DDE3EA] pt-8">
-      <div className="grid gap-6 lg:grid-cols-[0.38fr_0.62fr]">
+    <article className="border-t border-[#D5DAE0] pt-8">
+      <div className="grid gap-6 lg:grid-cols-[0.48fr_0.52fr]">
         <div>
-          <h3 className="text-3xl font-semibold tracking-[-0.035em] text-[#111111]">
-            {item.company}
-          </h3>
-          <p className="mt-2 text-lg text-[#444444]">{item.label}</p>
-        </div>
-        <div>
-          <p className="text-sm font-semibold tracking-[0.14em] text-[#777777] uppercase">
-            Projects
-          </p>
           <div className="mt-3 flex flex-wrap gap-2">
             {item.projects.map((project) => (
-              <span key={project} className="border border-[#DDE3EA] bg-white px-3 py-1 text-sm text-[#111111]">
+              <span key={project} className="border border-[#C9D0D9] bg-white px-3 py-1 text-sm font-semibold text-[#111111]">
                 {project}
               </span>
             ))}
           </div>
-          <p className="mt-6 text-sm font-semibold tracking-[0.14em] text-[#777777] uppercase">
+          <h3 className="mt-6 text-3xl font-semibold tracking-[-0.035em] text-[#111111]">
+            {item.label}
+          </h3>
+          <p className="mt-2 text-base font-medium text-[#555555]">{item.company}</p>
+        </div>
+        <div>
+          <p className="text-sm font-semibold tracking-[0.14em] text-[#666666] uppercase">
             Role
           </p>
-          <p className="mt-2 text-base text-[#444444]">{item.role}</p>
-          <ul className="mt-6 grid gap-2 text-base leading-7 text-[#444444]">
+          <p className="mt-2 text-base font-medium text-[#333333]">{item.role}</p>
+          <ul className="mt-6 grid gap-2 text-base leading-7 text-[#333333]">
             {item.details.map((detail) => (
-              <li key={detail}>- {detail}</li>
+              <li key={detail} className="border-l border-[#C9D0D9] pl-4">
+                {detail}
+              </li>
             ))}
           </ul>
         </div>
@@ -547,10 +701,10 @@ function ExperienceBlock({
 function Meta({ label, value }: { label: string; value: string }) {
   return (
     <div>
-      <dt className="text-xs font-semibold tracking-[0.14em] text-[#777777] uppercase">
+      <dt className="text-xs font-semibold tracking-[0.14em] text-[#666666] uppercase">
         {label}
       </dt>
-      <dd className="mt-2 text-sm leading-6 text-[#444444]">{value}</dd>
+      <dd className="mt-2 text-sm font-medium leading-6 text-[#222222]">{value}</dd>
     </div>
   );
 }
