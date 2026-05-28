@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FadeIn } from "@/components/motion";
+import { FadeIn, FloatCard } from "@/components/motion";
 import { HomeHero } from "@/components/home-hero";
 
 type Locale = "ko" | "en";
@@ -12,7 +12,7 @@ const copy = {
       title: "Schedule Block",
       summary: "AI 협업 기반 개인 스케줄링 앱",
       description:
-        "완료하지 못한 일정의 자동 이월 구조와 일정/할 일 통합 UX를 중심으로 설계한 개인 스케줄링 앱입니다.",
+        "완료하지 못한 일정을 자동으로 이월하고, 일정과 할 일을 하나의 흐름으로 관리하는 개인 스케줄링 앱입니다.",
       role: "Product Design · UX Flow · AI Collaboration",
       platform: "iOS",
       status: "Live Product",
@@ -20,9 +20,8 @@ const copy = {
     },
     works: {
       eyebrow: "Selected Works",
-      title: "운영 흐름이 있는 작업들",
-      description:
-        "관리자 시스템, 글로벌 웹 서비스, 개인 제품 실험을 실제 서비스 맥락 중심으로 정리했습니다.",
+      title: "서비스를 움직인 프로젝트",
+      description: "사용자 화면, 관리자 시스템, 운영 흐름을 함께 설계한 작업들입니다.",
     },
     about: {
       eyebrow: "About",
@@ -35,7 +34,9 @@ const copy = {
     },
     experience: {
       eyebrow: "Experience",
-      title: "대표 제품 환경",
+      title: "서비스를 운영하며 쌓은 경험",
+      description:
+        "글로벌 서비스, 관리자 시스템, 공공 플랫폼까지 다양한 제품 환경에서 사용자와 운영자의 흐름을 설계했습니다.",
     },
     brunch: {
       eyebrow: "brunch",
@@ -116,8 +117,8 @@ const selectedWorks = {
     },
     {
       name: "GGPoker / PokerStake",
-      summary: "글로벌 서비스 웹 UX와 참여 구조",
-      role: "UI/UX Design · Service UX",
+      summary: "글로벌 서비스 웹사이트와 운영 구조",
+      role: "UX/UI Design · Service UX",
       platform: "Web",
       status: "Service Experience",
       keywords: ["Global Website", "Player / Backer Flow", "Trust UX"],
@@ -126,11 +127,11 @@ const selectedWorks = {
     },
     {
       name: "mobimobi",
-      summary: "개인 메이커 실험과 제품 콘셉트",
+      summary: "게임 루틴 관리를 위한 체크리스트 서비스",
       role: "Product Concept",
       platform: "Web · Mobile Concept",
       status: "Side Project",
-      keywords: ["Small Product", "Brand System", "Maker Experiment"],
+      keywords: ["Small Product", "Routine System", "Maker Experiment"],
       href: "/projects",
       visual: "mobile",
     },
@@ -177,7 +178,7 @@ const experiences = {
       projects: "GGPoker · WSOP+ · PokerStake",
       role: "Product Design · Admin UX · Service Operations",
       description:
-        "글로벌 포커 플랫폼의 웹, 앱, 관리자 시스템과 서비스 운영에 필요한 인터페이스를 설계했습니다.",
+        "글로벌 포커 플랫폼의 웹사이트, 모바일 앱, 관리자 시스템과 운영 인터페이스를 설계했습니다.",
     },
     {
       category: "Admin System Experience",
@@ -189,7 +190,7 @@ const experiences = {
     },
     {
       category: "Web Platform Experience",
-      company: "플레이니트 / 제이넷",
+      company: "플레이니트 · 제이넷",
       projects: "Brand Promotion · Public Platform · Library Service",
       role: "Web Design · UI/UX · Publishing",
       description:
@@ -231,21 +232,22 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
     <main className="bg-white text-[#111111]">
       <HomeHero locale={locale} />
 
-      <section id="projects" className="min-h-screen bg-[#F7F9FC] px-5 py-24 sm:px-8 lg:py-32">
-        <div className="mx-auto grid w-full max-w-[1280px] gap-14 lg:grid-cols-[0.48fr_0.52fr] lg:items-center">
+      <section id="projects" className="relative min-h-screen overflow-hidden bg-[#F6F9FC] px-5 py-24 sm:px-8 lg:py-32">
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-72 bg-[linear-gradient(135deg,rgba(79,124,255,0.10),rgba(66,214,181,0.12),transparent)]" />
+        <div className="relative mx-auto grid w-full max-w-[1200px] gap-14 lg:grid-cols-[0.48fr_0.52fr] lg:items-center">
           <FadeIn>
             <div className="max-w-xl">
               <SectionKicker>{t.featured.eyebrow}</SectionKicker>
-              <h2 className="mt-5 text-5xl font-semibold leading-[1.02] tracking-[-0.055em] text-[#111111] sm:text-7xl">
+              <h2 className="mt-5 text-5xl font-extrabold leading-[1.04] tracking-[-0.05em] text-[#111827] sm:text-7xl">
                 {t.featured.title}
               </h2>
-              <p className="mt-6 text-2xl font-semibold leading-snug tracking-[-0.035em] text-[#111111]">
+              <p className="mt-6 text-2xl font-semibold leading-snug tracking-[-0.035em] text-[#111827]">
                 {t.featured.summary}
               </p>
-              <p className="mt-6 text-lg leading-8 text-[#111111]">
+              <p className="mt-6 text-lg leading-8 text-[#4B5563]">
                 {t.featured.description}
               </p>
-              <dl className="mt-10 grid gap-6 border-y border-[#D9DDE3] py-8 sm:grid-cols-2">
+              <dl className="mt-10 grid gap-6 border-y border-[#D9E1EA] py-8 sm:grid-cols-2">
                 <Meta label="Role" value={t.featured.role} />
                 <Meta label="Platform" value={t.featured.platform} />
                 <Meta label="Status" value={t.featured.status} />
@@ -253,9 +255,9 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
               </dl>
               <Link
                 href="/projects/schedule-block"
-                className="mt-10 inline-flex items-center rounded-full bg-[#111111] px-6 py-4 text-sm font-semibold text-white transition hover:bg-[#5A8DFF]"
+                className="group mt-10 inline-flex items-center rounded-full bg-[linear-gradient(135deg,#4F7CFF,#42D6B5)] px-6 py-4 text-sm font-semibold text-white shadow-[0_18px_42px_rgba(79,124,255,0.25)] transition hover:-translate-y-0.5"
               >
-                View Case Study →
+                View Case Study <span className="ml-2 transition group-hover:translate-x-1">→</span>
               </Link>
             </div>
           </FadeIn>
@@ -266,37 +268,37 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
       </section>
 
       <section className="bg-white px-5 py-24 sm:px-8 lg:py-32">
-        <div className="mx-auto w-full max-w-[1280px]">
+        <div className="mx-auto w-full max-w-[1200px]">
           <FadeIn>
-            <div className="grid gap-8 border-t border-[#111111] pt-10 lg:grid-cols-[0.38fr_0.62fr]">
+            <div className="grid gap-8 border-t border-[#D9E1EA] pt-10 lg:grid-cols-[0.38fr_0.62fr]">
               <div>
                 <SectionKicker>{t.works.eyebrow}</SectionKicker>
-                <h2 className="mt-5 max-w-md text-4xl font-semibold leading-tight tracking-[-0.05em] text-[#111111] sm:text-6xl">
+                <h2 className="mt-5 max-w-md text-4xl font-extrabold leading-tight tracking-[-0.05em] text-[#111827] sm:text-6xl">
                   {t.works.title}
                 </h2>
               </div>
-              <p className="max-w-2xl text-lg leading-8 text-[#111111]">
+              <p className="max-w-2xl text-lg leading-8 text-[#4B5563]">
                 {t.works.description}
               </p>
             </div>
           </FadeIn>
           <div className="mt-14 grid gap-6 lg:grid-cols-3">
             {selectedWorks[locale].map((work, index) => (
-              <FadeIn key={work.name} delay={index * 0.04}>
+              <FloatCard key={work.name} delay={index * 0.06}>
                 <WorkCard work={work} />
-              </FadeIn>
+              </FloatCard>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="about" className="grid min-h-[70vh] bg-[#F4F7FA] px-5 py-24 sm:px-8 lg:py-32">
+      <section id="about" className="grid min-h-[70vh] bg-[#EEF6F8] px-5 py-24 sm:px-8 lg:py-32">
         <FadeIn className="mx-auto grid max-w-[980px] content-center text-center">
           <SectionKicker>{t.about.eyebrow}</SectionKicker>
-          <h2 className="mt-6 text-4xl font-semibold leading-tight tracking-[-0.05em] text-[#111111] sm:text-6xl">
+          <h2 className="mt-6 text-4xl font-extrabold leading-tight tracking-[-0.05em] text-[#111827] sm:text-6xl">
             {t.about.title}
           </h2>
-          <div className="mx-auto mt-10 grid max-w-3xl gap-6 text-lg leading-9 text-[#111111] sm:text-xl sm:leading-10">
+          <div className="mx-auto mt-8 grid max-w-[680px] gap-5 text-[17px] leading-[1.75] text-[#4B5563] sm:text-lg">
             {t.about.body.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
@@ -305,13 +307,18 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
       </section>
 
       <section id="experience" className="min-h-screen bg-white px-5 py-24 sm:px-8 lg:py-32">
-        <div className="mx-auto grid w-full max-w-[1280px] gap-14 lg:grid-cols-[0.32fr_0.68fr]">
+        <div className="mx-auto grid w-full max-w-[1200px] gap-14 lg:grid-cols-[0.32fr_0.68fr]">
           <FadeIn>
             <div className="sticky top-28">
               <SectionKicker>{t.experience.eyebrow}</SectionKicker>
-              <h2 className="mt-5 text-4xl font-semibold leading-tight tracking-[-0.05em] text-[#111111] sm:text-6xl">
+              <h2 className="mt-5 text-4xl font-extrabold leading-tight tracking-[-0.05em] text-[#111827] sm:text-6xl">
                 {t.experience.title}
               </h2>
+              {"description" in t.experience ? (
+                <p className="mt-6 max-w-sm text-base leading-8 text-[#4B5563]">
+                  {t.experience.description}
+                </p>
+              ) : null}
             </div>
           </FadeIn>
           <div className="grid border-t border-[#111111]">
@@ -324,31 +331,32 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
         </div>
       </section>
 
-      <section id="writing" className="grid min-h-[70vh] bg-[#F7F9FC] px-5 py-24 sm:px-8 lg:py-32">
-        <div className="mx-auto grid w-full max-w-[1280px] content-center gap-14 lg:grid-cols-[0.45fr_0.55fr] lg:items-center">
+      <section id="writing" className="grid min-h-[70vh] bg-[#F8FAFF] px-5 py-24 sm:px-8 lg:py-32">
+        <div className="mx-auto grid w-full max-w-[1200px] content-center gap-14 lg:grid-cols-[0.45fr_0.55fr] lg:items-center">
           <FadeIn>
             <SectionKicker>{t.brunch.eyebrow}</SectionKicker>
-            <h2 className="mt-5 max-w-lg text-4xl font-semibold leading-tight tracking-[-0.05em] text-[#111111] sm:text-6xl">
+            <h2 className="mt-5 max-w-lg text-4xl font-extrabold leading-tight tracking-[-0.05em] text-[#111827] sm:text-6xl">
               {t.brunch.title}
             </h2>
-            <p className="mt-6 max-w-md text-lg leading-8 text-[#111111]">
+            <p className="mt-6 max-w-md text-lg leading-8 text-[#4B5563]">
               {t.brunch.description}
             </p>
           </FadeIn>
           <FadeIn delay={0.06}>
             <Link
               href="/writing"
-              className="group block rounded-[20px] border border-[#E2E8F0] bg-white p-8 shadow-[0_24px_60px_rgba(15,23,42,0.08)] transition hover:-translate-y-1 hover:border-[#111111] sm:p-12"
+              className="group relative block overflow-hidden rounded-[24px] border border-[#E2E8F0] bg-white p-8 shadow-[0_24px_60px_rgba(15,23,42,0.08)] transition hover:-translate-y-2 hover:shadow-[0_32px_80px_rgba(15,23,42,0.12)] sm:p-12"
             >
+              <div className="absolute inset-x-0 top-0 h-1 bg-[linear-gradient(135deg,#4F7CFF,#42D6B5)]" />
               <p className="text-sm font-semibold text-[#666666]">{t.brunch.meta}</p>
-              <h3 className="mt-8 max-w-xl text-4xl font-semibold leading-tight tracking-[-0.05em] text-[#111111] sm:text-6xl">
+              <h3 className="mt-8 max-w-xl text-4xl font-extrabold leading-tight tracking-[-0.05em] text-[#111827] sm:text-6xl">
                 {t.brunch.articleTitle}
               </h3>
-              <p className="mt-6 max-w-lg text-lg leading-8 text-[#111111]">
+              <p className="mt-6 max-w-lg text-lg leading-8 text-[#4B5563]">
                 {t.brunch.articleDescription}
               </p>
-              <p className="mt-12 text-sm font-semibold text-[#111111] underline decoration-[#5A8DFF] decoration-2 underline-offset-8">
-                {t.brunch.cta} →
+              <p className="mt-12 text-sm font-semibold text-[#111827] underline decoration-[#42D6B5] decoration-2 underline-offset-8">
+                {t.brunch.cta} <span className="inline-block transition group-hover:translate-x-1">→</span>
               </p>
             </Link>
           </FadeIn>
@@ -356,15 +364,16 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
       </section>
 
       <section id="contact" className="grid min-h-[60vh] bg-white px-5 py-24 sm:px-8 lg:py-32">
-        <FadeIn className="mx-auto grid w-full max-w-[1280px] content-center">
-          <div className="rounded-[20px] bg-[#111111] p-8 text-white sm:p-12 lg:p-16">
+        <FadeIn className="mx-auto grid w-full max-w-[1200px] content-center">
+          <div className="relative overflow-hidden rounded-[28px] bg-[#0B111A] p-8 text-white sm:p-12 lg:p-20">
+            <div className="pointer-events-none absolute -right-20 -top-24 h-80 w-80 rounded-full bg-[radial-gradient(circle,rgba(79,124,255,0.45),rgba(66,214,181,0.22)_38%,transparent_70%)] blur-2xl" />
             <div className="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-end">
-              <h2 className="max-w-4xl text-4xl font-semibold leading-tight tracking-[-0.05em] sm:text-6xl">
+              <h2 className="relative max-w-4xl text-4xl font-extrabold leading-tight tracking-[-0.05em] sm:text-6xl">
                 {t.contact.title}
               </h2>
               <Link
                 href="/contact"
-                className="inline-flex w-fit items-center rounded-full bg-white px-7 py-4 text-sm font-semibold text-[#111111] transition hover:bg-[#EAF0FF]"
+                className="relative inline-flex w-fit items-center rounded-full bg-white px-7 py-4 text-sm font-semibold text-[#111827] transition hover:-translate-y-0.5 hover:bg-[#EAF0FF]"
               >
                 {t.contact.cta} →
               </Link>
