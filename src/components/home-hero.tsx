@@ -54,7 +54,7 @@ export function HomeHero({ locale = "ko" }: { locale?: Locale }) {
           </p>
           <Link
             href={locale === "en" ? "/en#projects" : "/#projects"}
-            className="mt-11 inline-flex items-center gap-2 text-base font-semibold text-[#111111] underline decoration-[#5A8DFF] decoration-2 underline-offset-8 transition hover:text-[#5A8DFF]"
+            className="mt-11 inline-flex items-center rounded-full border border-[#111111] px-5 py-3 text-base font-semibold text-[#111111] transition hover:border-[#5A8DFF] hover:text-[#5A8DFF]"
           >
             {content.cta} <span aria-hidden="true">→</span>
           </Link>
@@ -77,8 +77,8 @@ function ProductSystemsCollage({ systems }: { systems: string[] }) {
         ))}
       </div>
 
-      <div className="relative mt-8 min-h-[450px] overflow-hidden bg-[#F5F7FA] p-5 shadow-[0_30px_90px_rgba(17,17,17,0.12)] sm:p-7">
-        <div className="absolute right-6 top-6 w-[68%] bg-white p-5 shadow-[0_18px_50px_rgba(17,17,17,0.1)]">
+      <div className="relative mt-8 min-h-[450px] overflow-hidden rounded-[20px] border border-[#E2E8F0] bg-[#F8FAFC] p-5 shadow-[0_24px_60px_rgba(15,23,42,0.08)] sm:p-7">
+        <div className="absolute right-6 top-6 w-[68%] rounded-2xl border border-[#E2E8F0] bg-white p-5 shadow-[0_18px_50px_rgba(15,23,42,0.08)]">
           <div className="flex items-center justify-between border-b border-[#D9DDE3] pb-4">
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#666666]">
               Web Service
@@ -108,7 +108,7 @@ function ProductSystemsCollage({ systems }: { systems: string[] }) {
           </div>
         </div>
 
-        <div className="absolute bottom-7 left-6 w-[48%] min-w-[250px] rounded-[2.1rem] border border-[#111111] bg-[#111111] p-2 shadow-[0_30px_80px_rgba(17,17,17,0.18)]">
+        <div className="absolute bottom-7 left-6 w-[48%] min-w-[250px] rounded-[2.1rem] border border-[#111111] bg-[#111111] p-2 shadow-[0_30px_80px_rgba(15,23,42,0.18)]">
           <div className="overflow-hidden rounded-[1.6rem] bg-white">
             <div className="flex items-center justify-between border-b border-[#D9DDE3] px-4 py-4">
               <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#666666]">
@@ -134,7 +134,7 @@ function ProductSystemsCollage({ systems }: { systems: string[] }) {
           </div>
         </div>
 
-        <div className="absolute bottom-10 right-7 w-56 bg-white p-4 shadow-[0_22px_55px_rgba(17,17,17,0.14)]">
+        <div className="absolute bottom-10 right-7 w-56 rounded-2xl border border-[#E2E8F0] bg-white p-4 shadow-[0_22px_55px_rgba(15,23,42,0.1)]">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#666666]">
             Admin System
           </p>
@@ -151,7 +151,7 @@ function ProductSystemsCollage({ systems }: { systems: string[] }) {
           </div>
         </div>
 
-        <div className="absolute left-[42%] top-[43%] hidden w-52 bg-white p-4 shadow-[0_24px_55px_rgba(17,17,17,0.16)] sm:block">
+        <div className="absolute left-[42%] top-[43%] hidden w-52 rounded-2xl border border-[#E2E8F0] bg-white p-4 shadow-[0_24px_55px_rgba(15,23,42,0.12)] sm:block">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#666666]">
             AI Workflow
           </p>

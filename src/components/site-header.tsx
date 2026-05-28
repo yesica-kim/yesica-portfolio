@@ -47,7 +47,7 @@ export function SiteHeader() {
             <Link
               href="/"
               className={`px-2 py-1 transition ${
-                !isEnglish ? "bg-[#F0F2F5] text-[#111111]" : "hover:text-[#111111]"
+                !isEnglish ? "rounded-full bg-[#F1F3F5] text-[#111111]" : "hover:text-[#111111]"
               }`}
             >
               KO
@@ -55,7 +55,7 @@ export function SiteHeader() {
             <Link
               href="/en"
               className={`px-2 py-1 transition ${
-                isEnglish ? "bg-[#F0F2F5] text-[#111111]" : "hover:text-[#111111]"
+                isEnglish ? "rounded-full bg-[#F1F3F5] text-[#111111]" : "hover:text-[#111111]"
               }`}
             >
               EN
@@ -63,7 +63,7 @@ export function SiteHeader() {
           </div>
           <Link
             href="/contact"
-            className="inline-flex h-12 items-center gap-3 bg-[#111111] px-6 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(17,17,17,0.18)] transition hover:bg-[#5A8DFF]"
+            className="inline-flex h-12 items-center gap-3 rounded-full bg-[#111111] px-6 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(17,17,17,0.18)] transition hover:bg-[#5A8DFF]"
           >
             Contact
           </Link>
