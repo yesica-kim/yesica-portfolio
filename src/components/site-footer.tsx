@@ -12,6 +12,9 @@ export function SiteFooter() {
           <Link href="/contact" className="transition hover:text-white">
             Contact
           </Link>
+          <Link href="/archive/2026-05-29" className="transition hover:text-white">
+            2026.05.29
+          </Link>
         </div>
       </div>
     </footer>

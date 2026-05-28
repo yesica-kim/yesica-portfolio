@@ -7,7 +7,8 @@ import { SiteHeader } from "./site-header";
 
 export function SiteShell({ children }: { children: ReactNode }) {
   const pathname = usePathname();
-  const isStandalonePage = pathname.startsWith("/schedule-block");
+  const isStandalonePage =
+    pathname.startsWith("/archive") || pathname.startsWith("/schedule-block");
 
   if (isStandalonePage) {
     return children;
