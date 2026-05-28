@@ -9,18 +9,20 @@ const page = {
   ko: {
     works: {
       eyebrow: "Projects",
-      title: "만든 것과 운영한 것",
+      title: "대표 프로젝트",
       description:
-        "앱, 웹, 관리자 시스템, 글로벌 서비스 운영 경험을 프로젝트 단위로 정리했습니다.",
+        "실제 제품 출시와 서비스 운영 맥락이 있는 작업을 중심으로 정리했습니다.",
     },
     about: {
       eyebrow: "About",
-      title: "사용자 화면과 운영 흐름을 함께 설계합니다",
+      title: "제품이 쓰이고 운영되는 장면을 함께 봅니다",
       body: (
         <>
-          10년 이상의 실무 경험을 바탕으로
+          화면을 예쁘게 정리하는 일보다,
           <br />
-          웹, 모바일, 관리자 시스템, 국내외 서비스 운영 경험을 쌓아왔습니다.
+          사용자가 행동하고 운영자가 판단하는 흐름을 먼저 봅니다.
+          <br />
+          웹, 모바일, 관리자 시스템과 글로벌 서비스 운영 경험을 바탕으로
           <br />
           최근에는 AI와 협업하며 직접 제품을 만들고 운영하고 있습니다.
         </>
@@ -49,20 +51,22 @@ const page = {
   en: {
     works: {
       eyebrow: "Projects",
-      title: "Products built and operated",
+      title: "Selected Works",
       description:
-        "A selection of apps, web services, admin systems, and global service operation work.",
+        "Selected work grounded in product launches, service operations, and real usage contexts.",
     },
     about: {
       eyebrow: "About",
-      title: "Designing user-facing products and the operations behind them",
+      title: "I look at the moments where products are used and operated",
       body: (
         <>
-          With more than a decade of hands-on experience, I have worked across
+          I care less about making screens look polished in isolation,
           <br />
-          web, mobile, admin systems, and local/global service operations.
+          and more about how people act, decide, recover, and keep services running.
           <br />
-          Recently, I have been building and operating products directly with AI.
+          My work spans web, mobile, admin systems, global operations,
+          <br />
+          and recently, building and operating products directly with AI.
         </>
       ),
     },
@@ -97,7 +101,7 @@ const works = {
       platform: "iOS",
       status: "Live Product",
       description:
-        "앱 출시, Google Calendar 연동, 일정 회복 시나리오까지 직접 설계하며 실제 사용자가 매일 쓰는 개인 생산성 흐름을 만들었습니다.",
+        "앱 출시, Google Calendar 연동, 일정 회복 시나리오까지 직접 설계하며 개인 생산성 제품의 핵심 흐름을 만들었습니다.",
       keywords: ["Google Calendar Sync", "Auto Rescheduling", "Personal Productivity"],
       href: "/projects/schedule-block",
       visual: "calendar",
@@ -257,7 +261,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
     <main className="bg-white text-[#111111]">
       <HomeHero locale={locale} />
 
-      <section id="projects" className="border-t border-[#D8DEE6] bg-[#FAFBFC] px-5 py-20 sm:px-8 lg:py-28">
+      <section id="projects" className="min-h-screen border-t border-[#D9DDE3] bg-[#FAFBFC] px-5 py-20 sm:px-8 lg:py-28">
         <div className="mx-auto w-full max-w-[1240px]">
           <FadeIn>
             <SectionIntro
@@ -266,7 +270,7 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
               description={t.works.description}
             />
           </FadeIn>
-          <div className="mt-16 grid gap-16">
+          <div className="mt-16 grid gap-20">
             {works[locale].map((work, index) => (
               <FadeIn key={work.name} delay={index * 0.03}>
                 <ProjectShowcase work={work} index={index} locale={locale} />
@@ -276,22 +280,22 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
         </div>
       </section>
 
-      <section id="about" className="bg-white px-5 py-20 text-center sm:px-8 lg:py-28">
-        <FadeIn className="mx-auto max-w-[920px]">
+      <section id="about" className="grid min-h-screen bg-white px-5 py-20 text-center sm:px-8 lg:py-28">
+        <FadeIn className="mx-auto grid max-w-[980px] content-center">
           <p className="text-sm font-semibold tracking-[0.18em] text-[#666666] uppercase">
             {t.about.eyebrow}
           </p>
           <h2 className="mt-6 text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#111111] sm:text-5xl">
             {t.about.title}
           </h2>
-          <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-[#333333] sm:text-xl sm:leading-9">
+          <p className="mx-auto mt-8 max-w-3xl text-lg leading-8 text-[#111111] sm:text-xl sm:leading-9">
             {t.about.body}
           </p>
         </FadeIn>
       </section>
 
-      <section id="experience" className="bg-[#F5F7FA] px-5 py-20 sm:px-8 lg:py-28">
-        <div className="mx-auto grid w-full max-w-[1240px] gap-12 lg:grid-cols-[0.32fr_0.68fr]">
+      <section id="experience" className="grid min-h-screen bg-[#F5F7FA] px-5 py-20 sm:px-8 lg:py-28">
+        <div className="mx-auto grid w-full max-w-[1240px] content-center gap-14 lg:grid-cols-[0.28fr_0.72fr]">
           <FadeIn>
             <SectionIntro eyebrow={t.experience.eyebrow} title={t.experience.title} />
           </FadeIn>
@@ -305,8 +309,8 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
         </div>
       </section>
 
-      <section id="writing" className="bg-white px-5 py-20 sm:px-8 lg:py-28">
-        <div className="mx-auto grid w-full max-w-[1240px] gap-12 lg:grid-cols-[0.45fr_0.55fr] lg:items-start">
+      <section id="writing" className="grid min-h-screen bg-white px-5 py-20 sm:px-8 lg:py-28">
+        <div className="mx-auto grid w-full max-w-[1240px] content-center gap-16 lg:grid-cols-[0.42fr_0.58fr] lg:items-center">
           <FadeIn>
             <SectionIntro
               eyebrow={t.brunch.eyebrow}
@@ -317,16 +321,16 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
           <FadeIn delay={0.06}>
             <Link
               href="/writing"
-              className="block border-y border-[#111111] py-8 transition hover:border-[#5A8DFF]"
+              className="block bg-[#111111] p-8 text-white transition hover:bg-[#5A8DFF] sm:p-12"
             >
-              <p className="text-sm font-medium text-[#666666]">{t.brunch.meta}</p>
-              <h3 className="mt-5 text-3xl font-semibold tracking-[-0.035em] text-[#111111]">
+              <p className="text-sm font-medium text-[#C8D0DA]">{t.brunch.meta}</p>
+              <h3 className="mt-5 text-4xl font-semibold tracking-[-0.045em] text-white sm:text-6xl">
                 {t.brunch.articleTitle}
               </h3>
-              <p className="mt-5 text-base leading-7 text-[#333333]">
+              <p className="mt-6 max-w-xl text-base leading-7 text-[#E6E9EE]">
                 {t.brunch.articleDescription}
               </p>
-              <p className="mt-8 text-sm font-semibold text-[#111111]">
+              <p className="mt-10 text-sm font-semibold text-white">
                 {t.brunch.cta} →
               </p>
             </Link>
@@ -334,15 +338,15 @@ export function HomePage({ locale = "ko" }: { locale?: Locale }) {
         </div>
       </section>
 
-      <section id="contact" className="bg-[#FAFBFC] px-5 py-20 sm:px-8 lg:py-28">
-        <FadeIn className="mx-auto max-w-[1240px]">
-          <div className="grid gap-8 border-t border-[#111111] pt-10 lg:grid-cols-[1fr_auto] lg:items-center">
+      <section id="contact" className="grid min-h-screen bg-[#FAFBFC] px-5 py-20 sm:px-8 lg:py-28">
+        <FadeIn className="mx-auto grid w-full max-w-[1240px] content-center">
+          <div className="grid gap-10 border-t border-[#111111] pt-12 lg:grid-cols-[1fr_auto] lg:items-center">
             <p className="max-w-3xl text-3xl font-semibold leading-tight tracking-[-0.035em] text-[#111111] sm:text-5xl">
               {t.contact.title}
             </p>
             <Link
               href="/contact"
-              className="inline-flex w-fit items-center gap-2 border border-[#111111] px-5 py-3 text-sm font-semibold text-[#111111] transition hover:border-[#5A8DFF] hover:text-[#5A8DFF]"
+              className="inline-flex w-fit items-center gap-2 bg-[#111111] px-6 py-4 text-sm font-semibold text-white transition hover:bg-[#5A8DFF]"
             >
               {t.contact.cta} →
             </Link>
@@ -371,7 +375,7 @@ function SectionIntro({
         {title}
       </h2>
       {description ? (
-        <p className="mt-5 max-w-2xl text-base leading-7 text-[#333333] sm:text-lg">
+        <p className="mt-5 max-w-2xl text-base leading-7 text-[#111111] sm:text-lg">
           {description}
         </p>
       ) : null}
@@ -404,10 +408,10 @@ function ProjectShowcase({
   return (
     <Link
       href={work.href}
-      className={`grid gap-10 border-t transition hover:border-[#5A8DFF] ${
+      className={`grid min-h-[82vh] gap-12 border-t transition hover:border-[#5A8DFF] ${
         featured
-          ? "border-[#111111] pt-12 lg:grid-cols-[0.62fr_0.38fr] lg:items-center"
-          : "border-[#D5DAE0] pt-10 lg:grid-cols-[0.52fr_0.48fr] lg:items-start"
+          ? "border-[#111111] pt-12 lg:grid-cols-[0.66fr_0.34fr] lg:items-center"
+          : "border-[#D9DDE3] pt-12 lg:min-h-[72vh] lg:grid-cols-[0.44fr_0.56fr] lg:items-center"
       } ${
         reversed ? "lg:[&>*:first-child]:order-2" : ""
       }`}
@@ -419,13 +423,13 @@ function ProjectShowcase({
         </p>
         <h3
           className={`mt-4 font-semibold tracking-[-0.045em] text-[#111111] ${
-            featured ? "text-5xl sm:text-6xl" : "text-4xl sm:text-5xl"
+            featured ? "text-5xl sm:text-7xl" : "text-4xl sm:text-6xl"
           }`}
         >
           {work.name}
         </h3>
-        <p className="mt-5 text-2xl leading-9 text-[#222222]">{work.summary}</p>
-        <p className="mt-6 text-base leading-8 text-[#333333]">{work.description}</p>
+        <p className="mt-5 text-2xl leading-9 text-[#111111]">{work.summary}</p>
+        <p className="mt-6 text-base leading-8 text-[#111111]">{work.description}</p>
         <dl className="mt-9 grid gap-5 sm:grid-cols-3">
           <Meta label="Role" value={work.role} />
           <Meta label="Platform" value={work.platform} />
@@ -433,7 +437,7 @@ function ProjectShowcase({
         </dl>
         <div className="mt-8 flex flex-wrap gap-2">
           {work.keywords.map((keyword) => (
-            <span key={keyword} className="border border-[#D5DAE0] bg-white px-3 py-1 text-xs font-medium text-[#444444]">
+            <span key={keyword} className="border border-[#D9DDE3] bg-white px-3 py-1 text-xs font-medium text-[#666666]">
               {keyword}
             </span>
           ))}
@@ -445,8 +449,8 @@ function ProjectShowcase({
 
 function ProjectVisual({ type, featured = false }: { type: string; featured?: boolean }) {
   return (
-    <div className="bg-white p-3 shadow-[0_22px_70px_rgba(17,17,17,0.11)] sm:p-5">
-      <div className={`${featured ? "min-h-[520px]" : "aspect-[4/3]"} bg-[#EEF2F5] p-5 sm:p-7`}>
+    <div className="bg-white p-3 shadow-[0_26px_80px_rgba(17,17,17,0.13)] sm:p-5">
+      <div className={`${featured ? "min-h-[560px]" : "min-h-[430px]"} bg-[#EEF2F5] p-5 sm:p-7`}>
         {type === "admin" ? (
           <AdminPreview />
         ) : type === "mobile" ? (
@@ -465,7 +469,7 @@ function CalendarPreview({ featured = false }: { featured?: boolean }) {
   return (
     <div className="grid h-full gap-5 lg:grid-cols-[0.72fr_0.28fr]">
       <div className="bg-white shadow-[0_18px_45px_rgba(17,17,17,0.08)]">
-        <div className="flex items-center justify-between border-b border-[#E2E6EB] px-5 py-5">
+        <div className="flex items-center justify-between border-b border-[#D9DDE3] px-5 py-5">
           <div className="flex items-center gap-3">
             <Image
               src="/schedule-block/app-icon.png"
@@ -498,12 +502,12 @@ function CalendarPreview({ featured = false }: { featured?: boolean }) {
               key={title}
               className="grid gap-3 bg-white p-4 shadow-[0_8px_22px_rgba(17,17,17,0.045)] sm:grid-cols-[4.5rem_1fr_auto] sm:items-center"
             >
-              <span className="text-sm font-semibold text-[#555555]">{time}</span>
+              <span className="text-sm font-semibold text-[#666666]">{time}</span>
               <span>
                 <span className="block text-base font-semibold text-[#111111]">{title}</span>
-                <span className="mt-1 block text-sm text-[#555555]">{note}</span>
+                <span className="mt-1 block text-sm text-[#666666]">{note}</span>
               </span>
-              <span className={index === 2 ? "text-xs font-semibold text-[#5A8DFF]" : "text-xs font-semibold text-[#555555]"}>
+              <span className={index === 2 ? "text-xs font-semibold text-[#5A8DFF]" : "text-xs font-semibold text-[#666666]"}>
                 {status}
               </span>
             </div>
@@ -516,7 +520,7 @@ function CalendarPreview({ featured = false }: { featured?: boolean }) {
             Calendar Sync
           </p>
           <p className="mt-3 text-3xl font-semibold tracking-[-0.05em] text-[#111111]">94%</p>
-          <p className="mt-2 text-sm leading-6 text-[#444444]">
+          <p className="mt-2 text-sm leading-6 text-[#666666]">
             Connected events kept consistent across devices.
           </p>
         </div>
@@ -546,14 +550,14 @@ function CalendarPreview({ featured = false }: { featured?: boolean }) {
 function AdminPreview() {
   return (
     <div className="grid h-full grid-cols-[5rem_1fr] gap-4 bg-white p-4 shadow-[0_14px_35px_rgba(17,17,17,0.07)] sm:grid-cols-[8rem_1fr] sm:p-5">
-      <div className="grid content-start gap-2 border-r border-[#E2E6EB] pr-3">
+      <div className="grid content-start gap-2 border-r border-[#D9DDE3] pr-3">
         {["Entry", "Payment", "Status", "User"].map((item, index) => (
           <div
             key={item}
             className={
               index === 2
                 ? "bg-[#111111] px-2 py-2 text-xs font-semibold text-white"
-                : "bg-[#F4F6F8] px-2 py-2 text-xs font-semibold text-[#444444]"
+                : "bg-[#F4F6F8] px-2 py-2 text-xs font-semibold text-[#666666]"
             }
           >
             {item}
@@ -561,7 +565,7 @@ function AdminPreview() {
         ))}
       </div>
       <div className="grid gap-4">
-        <div className="flex items-center justify-between border-b border-[#E2E6EB] pb-4">
+        <div className="flex items-center justify-between border-b border-[#D9DDE3] pb-4">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#666666]">
               Tournament Ops
@@ -597,7 +601,7 @@ function AdminPreview() {
 function WebPreview() {
   return (
     <div className="h-full bg-white p-5 shadow-[0_14px_35px_rgba(17,17,17,0.07)]">
-      <div className="mb-6 flex items-center justify-between border-b border-[#E2E6EB] pb-4">
+      <div className="mb-6 flex items-center justify-between border-b border-[#D9DDE3] pb-4">
         <p className="text-xl font-semibold tracking-[-0.04em] text-[#111111]">
           GGPoker / PokerStake
         </p>
@@ -631,9 +635,9 @@ function WebPreview() {
 function MobilePreview() {
   return (
     <div className="grid h-full place-items-center bg-white shadow-[0_14px_35px_rgba(17,17,17,0.07)]">
-      <div className="h-72 w-40 rounded-[2rem] border border-[#C9D0D9] bg-[#111111] p-2 shadow-[0_20px_45px_rgba(17,17,17,0.16)]">
+      <div className="h-72 w-40 rounded-[2rem] border border-[#D9DDE3] bg-[#111111] p-2 shadow-[0_20px_45px_rgba(17,17,17,0.16)]">
         <div className="h-full rounded-[1.55rem] bg-white p-3">
-          <div className="mx-auto h-1.5 w-10 rounded-full bg-[#D5DAE0]" />
+          <div className="mx-auto h-1.5 w-10 rounded-full bg-[#D9DDE3]" />
           <div className="mt-5 bg-[#EEF4FF] p-3">
             <p className="text-xs font-semibold text-[#315EDB]">mobimobi</p>
             <p className="mt-2 text-lg font-semibold tracking-[-0.04em] text-[#111111]">
@@ -642,7 +646,7 @@ function MobilePreview() {
           </div>
           <div className="mt-3 grid gap-2">
             {["Idea", "Flow", "Brand"].map((item) => (
-              <div key={item} className="bg-[#F5F7FA] px-3 py-2 text-xs font-semibold text-[#333333]">
+              <div key={item} className="bg-[#F5F7FA] px-3 py-2 text-xs font-semibold text-[#111111]">
                 {item}
               </div>
             ))}
@@ -665,29 +669,31 @@ function ExperienceBlock({
   };
 }) {
   return (
-    <article className="border-t border-[#D5DAE0] pt-8">
-      <div className="grid gap-6 lg:grid-cols-[0.48fr_0.52fr]">
+    <article className="border-t border-[#D9DDE3] pt-10">
+      <div className="grid gap-8 lg:grid-cols-[0.56fr_0.44fr]">
         <div>
-          <div className="mt-3 flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-3">
             {item.projects.map((project) => (
-              <span key={project} className="border border-[#C9D0D9] bg-white px-3 py-1 text-sm font-semibold text-[#111111]">
+              <span key={project} className="bg-white px-4 py-2 text-xl font-semibold tracking-[-0.04em] text-[#111111] shadow-[0_10px_30px_rgba(17,17,17,0.06)]">
                 {project}
               </span>
             ))}
           </div>
-          <h3 className="mt-6 text-3xl font-semibold tracking-[-0.035em] text-[#111111]">
+          <h3 className="mt-8 text-4xl font-semibold tracking-[-0.045em] text-[#111111]">
             {item.label}
           </h3>
-          <p className="mt-2 text-base font-medium text-[#555555]">{item.company}</p>
+          <p className="mt-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#666666]">
+            {item.company}
+          </p>
         </div>
         <div>
           <p className="text-sm font-semibold tracking-[0.14em] text-[#666666] uppercase">
             Role
           </p>
-          <p className="mt-2 text-base font-medium text-[#333333]">{item.role}</p>
-          <ul className="mt-6 grid gap-2 text-base leading-7 text-[#333333]">
+          <p className="mt-2 text-base font-medium text-[#111111]">{item.role}</p>
+          <ul className="mt-6 grid gap-3 text-base leading-7 text-[#111111]">
             {item.details.map((detail) => (
-              <li key={detail} className="border-l border-[#C9D0D9] pl-4">
+              <li key={detail} className="border-l border-[#D9DDE3] pl-4">
                 {detail}
               </li>
             ))}

@@ -24,14 +24,14 @@ export function SiteHeader() {
   const isEnglish = locale === "en";
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[#E6E9EE] bg-white/86 backdrop-blur-xl">
-      <div className="mx-auto grid h-20 w-full max-w-[1120px] grid-cols-[1fr_auto_1fr] items-center px-5 sm:px-8">
+    <header className="sticky top-0 z-40 border-b border-[#D9DDE3] bg-white/90 backdrop-blur-xl">
+      <div className="mx-auto grid h-20 w-full max-w-[1240px] grid-cols-[1fr_auto_1fr] items-center px-5 sm:px-8">
         <Link href={isEnglish ? "/en" : "/"} className="group flex items-center gap-2.5">
           <span className="whitespace-nowrap text-sm font-semibold tracking-[-0.03em] text-[#111111] sm:text-base">
             Yesica-Portfolio
           </span>
         </Link>
-        <nav className="hidden items-center justify-center gap-12 text-sm text-[#444444] md:flex lg:gap-16">
+        <nav className="hidden items-center justify-center gap-12 text-sm font-medium text-[#111111] md:flex lg:gap-16">
           {navItems[locale].map((item) => (
             <Link
               key={item.href}
@@ -43,19 +43,19 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center justify-end gap-3">
-          <div className="hidden items-center gap-1 border border-[#DDE3EA] bg-white p-1 text-xs font-semibold text-[#777777] sm:flex">
+          <div className="hidden items-center gap-1 text-[11px] font-semibold text-[#666666] sm:flex">
             <Link
               href="/"
-              className={`rounded-full px-2.5 py-1.5 transition ${
-                !isEnglish ? "bg-[#111111] text-white" : "hover:text-[#111111]"
+              className={`px-2 py-1 transition ${
+                !isEnglish ? "bg-[#F0F2F5] text-[#111111]" : "hover:text-[#111111]"
               }`}
             >
               KO
             </Link>
             <Link
               href="/en"
-              className={`rounded-full px-2.5 py-1.5 transition ${
-                isEnglish ? "bg-[#111111] text-white" : "hover:text-[#111111]"
+              className={`px-2 py-1 transition ${
+                isEnglish ? "bg-[#F0F2F5] text-[#111111]" : "hover:text-[#111111]"
               }`}
             >
               EN
@@ -63,7 +63,7 @@ export function SiteHeader() {
           </div>
           <Link
             href="/contact"
-            className="inline-flex h-11 items-center gap-3 bg-[#111111] px-5 text-sm font-semibold text-white transition hover:bg-[#5A8DFF]"
+            className="inline-flex h-12 items-center gap-3 bg-[#111111] px-6 text-sm font-semibold text-white shadow-[0_12px_28px_rgba(17,17,17,0.18)] transition hover:bg-[#5A8DFF]"
           >
             Contact
           </Link>
