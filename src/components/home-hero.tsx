@@ -1,286 +1,140 @@
 "use client";
 
 import Link from "next/link";
-import {
-  motion,
-  useMotionTemplate,
-  useMotionValue,
-  useSpring,
-  useTransform,
-} from "framer-motion";
-import type { MouseEvent } from "react";
+import { motion } from "framer-motion";
 
 type Locale = "ko" | "en";
 
 const heroContent = {
   ko: {
-    eyebrow: "Product Designer / UI·UX Designer",
-    title: (
+    eyebrow: "Product Designer",
+    titleTop: "사용자 경험부터",
+    titleBottom: "운영 흐름까지 설계합니다",
+    description: (
       <>
-        서비스를 움직이는
+        실제 서비스 경험을 바탕으로
         <br />
-        <span className="bg-[linear-gradient(100deg,#5a8dff_0%,#4de1c1_72%,#5ef2c2_100%)] bg-clip-text text-transparent">
-          시스템을 설계합니다
-        </span>
+        제품과 운영의 흐름을 설계합니다.
       </>
     ),
-    description:
-      "웹, 모바일, 관리자 시스템을 넘나든 오랜 실무 경험과 AI와 함께 실제 제품을 만들고 운영해온 설계 경험",
     cta: "View Projects",
-    cards: [
-      {
-        title: "Schedule Block",
-        badge: "출시 제품",
-        description: "계획이 밀린 뒤에도 다시 회복할 수 있도록 설계한 일정 블록 앱",
-        cta: "케이스 보기",
-        href: "/projects/schedule-block",
-        className: "",
-        visual: "schedule",
-      },
-      {
-        title: "AI Workflow",
-        badge: "작업 시스템",
-        description: "아이디어 정리부터 프로토타입과 자동화까지 빠르게 반복하는 개인 작업 시스템",
-        cta: "흐름 보기",
-        href: "/projects",
-        className: "lg:translate-x-6",
-        visual: "workflow",
-      },
-    ],
+    previewLabel: "Representative Product",
+    previewTitle: "Schedule Block",
+    previewSubtitle: "AI 협업 기반 스케줄링 앱",
+    previewMeta: ["iOS", "Live Product", "Calendar Sync"],
   },
   en: {
-    eyebrow: "Product Designer / UI·UX Designer",
-    title: (
+    eyebrow: "Product Designer",
+    titleTop: "Designing user experience",
+    titleBottom: "and operation flows",
+    description: (
       <>
-        Designing calm systems
+        I design product and operational flows
         <br />
-        <span className="bg-[linear-gradient(100deg,#5a8dff_0%,#4de1c1_72%,#5ef2c2_100%)] bg-clip-text text-transparent">
-          for real life products
-        </span>
+        based on real service experience.
       </>
     ),
-    description:
-      "I design web, mobile, and admin systems with years of hands-on product experience. Today, I also build and operate small products with AI as a maker partner.",
     cta: "View Projects",
-    cards: [
-      {
-        title: "Schedule Block",
-        badge: "Live Product",
-        description: "A recovery-first scheduling app with calendar sync and rescheduling flows.",
-        cta: "View case",
-        href: "/projects/schedule-block",
-        className: "",
-        visual: "schedule",
-      },
-      {
-        title: "AI Workflow",
-        badge: "Maker System",
-        description: "A personal workflow for moving from ideas to prototypes and automation quickly.",
-        cta: "View flow",
-        href: "/en#thinking",
-        className: "lg:translate-x-6",
-        visual: "workflow",
-      },
-    ],
+    previewLabel: "Representative Product",
+    previewTitle: "Schedule Block",
+    previewSubtitle: "AI-assisted scheduling app",
+    previewMeta: ["iOS", "Live Product", "Calendar Sync"],
   },
 };
 
 export function HomeHero({ locale = "ko" }: { locale?: Locale }) {
   const content = heroContent[locale];
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-  const smoothX = useSpring(mouseX, { stiffness: 80, damping: 24 });
-  const smoothY = useSpring(mouseY, { stiffness: 80, damping: 24 });
-  const cardX = useTransform(smoothX, [-0.5, 0.5], [-10, 10]);
-  const cardY = useTransform(smoothY, [-0.5, 0.5], [-8, 8]);
-  const spotlightX = useTransform(smoothX, [-0.5, 0.5], ["38%", "62%"]);
-  const spotlightY = useTransform(smoothY, [-0.5, 0.5], ["30%", "58%"]);
-  const spotlightBackground = useMotionTemplate`radial-gradient(520px circle at ${spotlightX} ${spotlightY}, rgba(77,225,193,0.12), rgba(90,141,255,0.06) 34%, transparent 72%)`;
-
-  function handleMouseMove(event: MouseEvent<HTMLElement>) {
-    const rect = event.currentTarget.getBoundingClientRect();
-    mouseX.set((event.clientX - rect.left) / rect.width - 0.5);
-    mouseY.set((event.clientY - rect.top) / rect.height - 0.5);
-  }
 
   return (
-    <section
-      onMouseMove={handleMouseMove}
-      className="relative isolate overflow-hidden border-b border-white/[0.07] px-5 pb-20 pt-16 sm:px-8 lg:min-h-[calc(84vh-5rem)] lg:pb-32 lg:pt-28"
-    >
-      <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_74%_30%,rgba(90,141,255,0.18),transparent_30rem),radial-gradient(circle_at_88%_50%,rgba(77,225,193,0.1),transparent_24rem)]" />
-      <motion.div
-        aria-hidden="true"
-        style={{ background: spotlightBackground }}
-        className="pointer-events-none absolute inset-0 -z-10 opacity-80"
-      />
-      <div className="absolute left-[50%] top-[52%] -z-10 hidden h-[30rem] w-[58rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/[0.06] lg:block" />
+    <section className="relative isolate overflow-hidden border-b border-white/[0.07] bg-[#05070A] px-5 py-20 sm:px-8 lg:py-28">
+      <div className="absolute inset-x-0 top-0 -z-10 h-px bg-[linear-gradient(90deg,transparent,rgba(90,141,255,0.42),transparent)]" />
+      <div className="absolute right-[-10rem] top-[-12rem] -z-10 h-[30rem] w-[30rem] rounded-full bg-[#5A8DFF]/10 blur-3xl" />
 
-      <div className="mx-auto grid w-full max-w-[1120px] gap-20 lg:grid-cols-[1.04fr_0.96fr] lg:items-center">
+      <div className="mx-auto grid w-full max-w-[1120px] gap-14 lg:grid-cols-[1.16fr_0.84fr] lg:items-center">
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.75, ease: "easeOut" }}
-          className="relative z-10 max-w-3xl"
+          transition={{ duration: 0.62, ease: "easeOut" }}
         >
-          <div className="mb-5 flex flex-wrap items-center gap-3">
-            <span className="text-[0.78rem] font-medium uppercase tracking-[0.14em] text-white/60 sm:text-sm">
-              {content.eyebrow}
-            </span>
-          </div>
-          <h1 className="text-[clamp(2rem,9.4vw,3.9rem)] font-semibold leading-[1.16] tracking-normal text-[#f4f7fa] sm:text-[clamp(2.6rem,3.9vw,3.9rem)]">
-            {content.title}
+          <p className="text-sm font-medium uppercase tracking-[0.18em] text-white/52">
+            {content.eyebrow}
+          </p>
+          <h1 className="mt-6 text-[clamp(2.55rem,4.35vw,4rem)] font-semibold leading-[1.14] tracking-[-0.035em] text-[#f6f8fb]">
+            {content.titleTop}
+            <br />
+            {content.titleBottom}
           </h1>
-          <p className="mt-12 max-w-xl text-base font-normal leading-[1.7] text-white/70 sm:text-lg">
+          <p className="mt-8 max-w-xl text-base font-normal leading-8 text-white/64 sm:text-lg">
             {content.description}
           </p>
-          <div className="mt-12 flex flex-wrap items-center gap-6">
+          <div className="mt-10">
             <Link
               href={locale === "en" ? "/en#projects" : "/#projects"}
-              className="group inline-flex h-14 items-center gap-3 rounded-full bg-[linear-gradient(120deg,#183c98,#5a8dff,#4de1c1)] px-7 text-base font-semibold text-white shadow-[0_18px_50px_rgba(90,141,255,0.24)] transition hover:-translate-y-0.5"
+              className="inline-flex h-12 items-center gap-3 rounded-full bg-white px-5 text-sm font-semibold text-[#05070A] transition hover:-translate-y-0.5 hover:bg-[#eef3f7]"
             >
               {content.cta}
-              <span className="transition group-hover:translate-x-1">→</span>
+              <span aria-hidden="true">→</span>
             </Link>
           </div>
         </motion.div>
 
         <motion.div
-          style={{ x: cardX, y: cardY }}
-          initial={{ opacity: 0, y: 28 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.12 }}
-          className="relative z-10 grid gap-5 lg:origin-center lg:scale-[0.9] lg:pl-8"
+          transition={{ duration: 0.7, ease: "easeOut", delay: 0.08 }}
+          className="relative"
         >
-          {content.cards.map((card, index) => (
-            <ProductFloatCard key={card.title} index={index} {...card} />
-          ))}
+          <div className="rounded-[1.75rem] border border-white/[0.08] bg-[#10161D] p-4 shadow-[0_28px_90px_rgba(0,0,0,0.28)]">
+            <div className="flex items-center justify-between border-b border-white/[0.07] px-2 pb-4">
+              <div>
+                <p className="text-xs font-medium uppercase tracking-[0.16em] text-white/38">
+                  {content.previewLabel}
+                </p>
+                <h2 className="mt-2 text-xl font-semibold text-white">
+                  {content.previewTitle}
+                </h2>
+              </div>
+              <span className="rounded-full border border-[#4DE1C1]/20 px-3 py-1 text-xs font-medium text-[#94ead9]">
+                Live
+              </span>
+            </div>
+
+            <div className="mt-4 overflow-hidden rounded-[1.25rem] border border-white/[0.07] bg-[#0B1016]">
+              <div className="grid grid-cols-[4.5rem_1fr] border-b border-white/[0.06] text-xs text-white/42">
+                <div className="border-r border-white/[0.06] px-4 py-3">Today</div>
+                <div className="px-4 py-3">{content.previewSubtitle}</div>
+              </div>
+              <div className="grid gap-2 p-3">
+                {[
+                  ["09:00", "Focus block", "synced"],
+                  ["13:30", "Design review", "fixed"],
+                  ["18:00", "Auto reschedule", "moved"],
+                ].map(([time, title, status]) => (
+                  <div
+                    key={time}
+                    className="grid grid-cols-[4.5rem_1fr_auto] items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.035] px-3 py-3"
+                  >
+                    <span className="text-xs text-white/38">{time}</span>
+                    <span className="text-sm font-medium text-[#e8edf2]">{title}</span>
+                    <span className="text-xs text-[#4DE1C1]/80">{status}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="mt-4 flex flex-wrap gap-2">
+              {content.previewMeta.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-white/[0.08] bg-white/[0.035] px-3 py-1.5 text-xs text-white/58"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>
-  );
-}
-
-function ProductFloatCard({
-  title,
-  badge,
-  description,
-  cta,
-  href,
-  className,
-  visual,
-  index,
-}: {
-  title: string;
-  badge: string;
-  description: string;
-  cta: string;
-  href: string;
-  className: string;
-  visual: string;
-  index: number;
-}) {
-  return (
-    <motion.article
-      initial={{ opacity: 0, y: 22 }}
-      animate={{ opacity: 1, y: 0 }}
-      whileHover={{ y: -6, rotate: 0 }}
-      transition={{ duration: 0.52, ease: "easeOut", delay: 0.12 + index * 0.07 }}
-      className={`${className} group overflow-hidden rounded-[1.45rem] border border-white/[0.1] bg-[rgba(16,24,32,0.62)] p-5 shadow-[0_24px_70px_rgba(0,0,0,0.28)] backdrop-blur-md transition hover:border-[#5ef2c2]/30 hover:shadow-[0_28px_90px_rgba(77,225,193,0.1)]`}
-    >
-      <div className="flex items-start justify-between gap-4">
-        <CardIcon type={visual} />
-        <span className="rounded-full bg-[#5a8dff]/18 px-3 py-1 text-xs font-medium text-[#b9d2ff]">
-          {badge}
-        </span>
-      </div>
-      <div className="mt-4">
-        <div>
-          <h2 className="text-lg font-semibold tracking-[-0.03em] text-white">
-            {title}
-          </h2>
-          <p className="mt-3 text-sm leading-6 text-[#b0bbc7]">{description}</p>
-          <Link
-            href={href}
-            className="mt-3 inline-flex items-center gap-2 text-sm font-semibold text-[#5ef2c2] transition group-hover:gap-3"
-          >
-            {cta} <span>→</span>
-          </Link>
-        </div>
-        <Preview type={visual} />
-      </div>
-    </motion.article>
-  );
-}
-
-function CardIcon({ type }: { type: string }) {
-  const label = type === "mobi" ? "m" : type === "workflow" ? "✦" : type === "systems" ? "◆" : "▦";
-
-  return (
-    <div className="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-[linear-gradient(135deg,rgba(90,141,255,0.42),rgba(77,225,193,0.2))] text-lg font-bold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.14)]">
-      {label}
-    </div>
-  );
-}
-
-function Preview({ type }: { type: string }) {
-  if (type === "schedule") {
-    return (
-      <div className="mt-4 rounded-2xl border border-white/[0.08] bg-black/20 p-2.5">
-        {["운동", "집중 업무", "점심 식사"].map((item, index) => (
-          <div
-            key={item}
-            className="mb-2 flex items-center gap-2 rounded-lg border border-white/[0.06] bg-white/[0.06] px-2.5 py-1.5 last:mb-0"
-          >
-            <span className="w-10 text-[10px] text-[#6f7b88]">
-              {9 + index}:00
-            </span>
-            <span className="h-2 w-2 rounded-full bg-[#5ef2c2]" />
-            <span className="text-xs text-[#dce5ee]">{item}</span>
-          </div>
-        ))}
-      </div>
-    );
-  }
-
-  if (type === "workflow") {
-    return (
-      <div className="mt-4 grid min-h-20 place-items-center rounded-2xl border border-white/[0.08] bg-[radial-gradient(circle_at_center,rgba(90,141,255,0.16),transparent_70%)]">
-        <div className="grid grid-cols-3 gap-3 text-xs font-semibold text-[#dce5ee]">
-          {["Gmail", "Notion", "n8n", "Telegram", "AI", "Daily"].map((node) => (
-            <span
-              key={node}
-              className="rounded-lg border border-white/[0.1] bg-white/[0.06] px-2.5 py-2 text-center"
-            >
-              {node}
-            </span>
-          ))}
-        </div>
-      </div>
-    );
-  }
-
-  if (type === "mobi") {
-    return (
-      <div className="mt-4 grid min-h-20 place-items-center rounded-2xl border border-white/[0.08] bg-[linear-gradient(135deg,rgba(91,61,255,0.32),rgba(77,225,193,0.1))]">
-        <div className="grid h-14 w-14 place-items-center rounded-2xl bg-[linear-gradient(135deg,#684dff,#4de1c1)] text-3xl font-bold text-white shadow-[0_18px_40px_rgba(90,141,255,0.28)]">
-          m
-        </div>
-      </div>
-    );
-  }
-
-  return (
-    <div className="mt-4 grid min-h-20 gap-2 rounded-2xl border border-white/[0.08] bg-white/[0.04] p-3">
-      <PreviewLine />
-      <PreviewLine width="w-3/4" />
-      <PreviewLine width="w-1/2" />
-    </div>
-  );
-}
-
-function PreviewLine({ width = "w-full" }: { width?: string }) {
-  return (
-    <div className={`h-6 ${width} rounded-lg bg-[linear-gradient(90deg,rgba(90,141,255,0.24),rgba(77,225,193,0.14))]`} />
   );
 }

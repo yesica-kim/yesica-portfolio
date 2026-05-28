@@ -24,14 +24,14 @@ export function SiteHeader() {
   const isEnglish = locale === "en";
 
   return (
-    <header className="sticky top-0 z-40 border-b border-white/[0.06] bg-[#060a0f]/78 backdrop-blur-xl">
+    <header className="sticky top-0 z-40 border-b border-white/[0.06] bg-[#05070A]/82 backdrop-blur-xl">
       <div className="mx-auto grid h-20 w-full max-w-[1120px] grid-cols-[1fr_auto_1fr] items-center px-5 sm:px-8">
         <Link href={isEnglish ? "/en" : "/"} className="group flex items-center gap-2.5">
           <span className="whitespace-nowrap text-sm font-semibold tracking-[-0.03em] text-white sm:text-base">
             Yesica-Portfolio
           </span>
         </Link>
-        <nav className="hidden items-center justify-center gap-10 text-sm text-[#d9e1ea] md:flex lg:gap-14">
+        <nav className="hidden items-center justify-center gap-12 text-sm text-[#d9e1ea] md:flex lg:gap-16">
           {navItems[locale].map((item) => (
             <Link
               key={item.href}
@@ -43,7 +43,7 @@ export function SiteHeader() {
           ))}
         </nav>
         <div className="flex items-center justify-end gap-3">
-          <div className="hidden items-center gap-1 rounded-full border border-white/[0.08] bg-white/[0.04] p-1 text-xs font-semibold text-[#8f9cab] sm:flex">
+          <div className="hidden items-center gap-1 rounded-full border border-white/[0.08] bg-transparent p-1 text-xs font-semibold text-[#8f9cab] sm:flex">
             <Link
               href="/"
               className={`rounded-full px-2.5 py-1.5 transition ${
@@ -63,7 +63,7 @@ export function SiteHeader() {
           </div>
           <Link
             href="/contact"
-            className="inline-flex h-11 items-center gap-3 rounded-full bg-[linear-gradient(120deg,#2147af,#5a8dff,#4de1c1)] px-5 text-sm font-semibold text-white shadow-[0_14px_38px_rgba(90,141,255,0.24)] transition hover:-translate-y-0.5 hover:shadow-[0_18px_46px_rgba(77,225,193,0.2)]"
+            className="inline-flex h-11 items-center gap-3 rounded-full bg-white px-5 text-sm font-semibold text-[#05070A] transition hover:-translate-y-0.5 hover:bg-[#eef3f7]"
           >
             Contact
           </Link>
