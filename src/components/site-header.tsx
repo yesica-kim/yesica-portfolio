@@ -95,6 +95,17 @@ export function SiteHeader() {
           </Link>
         </div>
       </div>
+      <nav className="mx-auto flex w-full max-w-[1200px] gap-2 overflow-x-auto border-t border-[#E2E8F0]/70 px-5 py-2 text-xs font-bold text-[#111827] sm:px-8 md:hidden">
+        {worksItems.map((item) => (
+          <Link
+            key={item.href}
+            href={item.href}
+            className="shrink-0 rounded-full border border-[#E2E8F0] bg-white px-3 py-2 transition hover:border-[#4F7CFF]/40 hover:text-[#4F7CFF]"
+          >
+            {item.label}
+          </Link>
+        ))}
+      </nav>
     </header>
   );
 }

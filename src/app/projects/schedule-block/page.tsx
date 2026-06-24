@@ -299,7 +299,7 @@ function PrimaryLink({ href, children }: { href: string; children: string }) {
   return (
     <Link
       href={href}
-      className="inline-flex min-h-12 items-center justify-center rounded-full bg-[#111827] px-6 text-sm font-bold text-white shadow-[0_18px_44px_rgba(17,24,39,0.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#4f7cff]"
+      className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-[#111827] px-6 text-sm font-bold text-white shadow-[0_18px_44px_rgba(17,24,39,0.18)] transition duration-300 hover:-translate-y-0.5 hover:bg-[#4f7cff] sm:w-auto"
     >
       {children}
     </Link>
@@ -310,7 +310,7 @@ function SecondaryLink({ href, children }: { href: string; children: string }) {
   return (
     <Link
       href={href}
-      className="group inline-flex min-h-12 items-center justify-center rounded-full border border-[#d9e1ea] bg-white px-6 text-sm font-bold text-[#111827] transition duration-300 hover:-translate-y-0.5 hover:border-[#4f7cff]/40 hover:text-[#4f7cff]"
+      className="group inline-flex min-h-12 w-full items-center justify-center rounded-full border border-[#d9e1ea] bg-white px-6 text-sm font-bold text-[#111827] transition duration-300 hover:-translate-y-0.5 hover:border-[#4f7cff]/40 hover:text-[#4f7cff] sm:w-auto"
     >
       <span>{children}</span>
       <span className="ml-2 transition duration-300 group-hover:translate-x-1">→</span>
@@ -322,7 +322,7 @@ function DisabledPill({ children }: { children: string }) {
   return (
     <span
       aria-disabled="true"
-      className="inline-flex min-h-12 cursor-not-allowed items-center justify-center rounded-full border border-[#d9e1ea] bg-[#f6f9fc] px-6 text-sm font-bold text-[#8a94a6]"
+      className="inline-flex min-h-12 w-full cursor-not-allowed items-center justify-center rounded-full border border-[#d9e1ea] bg-[#f6f9fc] px-6 text-sm font-bold text-[#8a94a6] sm:w-auto"
     >
       {children}
     </span>
@@ -331,16 +331,16 @@ function DisabledPill({ children }: { children: string }) {
 
 function ProductPreview() {
   return (
-    <div className="relative mx-auto w-full max-w-[520px] rounded-[2rem] border border-[#d9e1ea] bg-white p-5 shadow-[0_36px_110px_rgba(79,124,255,0.18)]">
+    <div className="relative mx-auto w-full max-w-[520px] rounded-[1.5rem] border border-[#d9e1ea] bg-white p-3 shadow-[0_36px_110px_rgba(79,124,255,0.18)] sm:rounded-[2rem] sm:p-5">
       <div className="absolute -right-6 -top-6 h-28 w-28 rounded-full bg-[#42d6b5]/25 blur-3xl" />
       <div className="absolute -bottom-8 -left-8 h-32 w-32 rounded-full bg-[#4f7cff]/20 blur-3xl" />
-      <div className="relative overflow-hidden rounded-[1.5rem] bg-[linear-gradient(135deg,#f8faff_0%,#eef6f8_100%)] p-5">
+      <div className="relative overflow-hidden rounded-[1.25rem] bg-[linear-gradient(135deg,#f8faff_0%,#eef6f8_100%)] p-4 sm:rounded-[1.5rem] sm:p-5">
         <div className="flex items-center justify-between">
-          <div>
+          <div className="w-full max-w-[280px] min-w-0 sm:max-w-none">
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#4f7cff]">
               Today Flow
             </p>
-            <h2 className="mt-2 text-2xl font-black tracking-tight text-[#111827]">
+            <h2 className="mt-2 text-xl font-black tracking-tight text-[#111827] sm:text-2xl">
               Recovery Plan
             </h2>
           </div>
@@ -353,7 +353,7 @@ function ProductPreview() {
             priority
           />
         </div>
-        <div className="mt-7 grid gap-4 lg:grid-cols-[0.82fr_1.18fr]">
+        <div className="mt-7 grid grid-cols-1 gap-4 lg:grid-cols-[0.82fr_1.18fr]">
           <div className="rounded-[1.4rem] border border-white/80 bg-white p-3 shadow-[0_18px_50px_rgba(15,23,42,0.1)]">
             <div className="mx-auto h-1.5 w-12 rounded-full bg-[#d9e1ea]" />
             <div className="mt-4 space-y-3">
@@ -413,7 +413,9 @@ function ProductPreview() {
               </p>
               <div className="mt-3 flex items-center gap-3">
                 <span className="h-10 w-10 rounded-full bg-[linear-gradient(135deg,#4f7cff,#42d6b5)]" />
-                <p className="text-sm font-bold text-[#111827]">Synced without duplicate flow</p>
+                <p className="min-w-0 text-sm font-bold leading-5 text-[#111827]">
+                  Synced without duplicate flow
+                </p>
               </div>
             </div>
           </div>
@@ -435,20 +437,20 @@ function InfoPanel({
   items: readonly string[];
 }) {
   return (
-    <section className="border-t border-[#d9e1ea] bg-white px-5 py-20 sm:px-8 lg:py-28">
-      <div className="mx-auto grid w-full max-w-[1200px] gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+    <section className="border-t border-[#d9e1ea] bg-white px-5 py-16 sm:px-8 sm:py-20 lg:py-28">
+      <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
         <div>
           <SectionLabel>{eyebrow}</SectionLabel>
-          <h2 className="mt-5 max-w-[700px] text-4xl font-black leading-[1.18] tracking-[-0.035em] text-[#111827] sm:text-5xl">
+          <h2 className="mt-5 max-w-[700px] text-[clamp(2rem,8vw,3rem)] font-black leading-[1.18] tracking-[-0.035em] text-[#111827]">
             {title}
           </h2>
-          <p className="mt-7 max-w-[660px] text-lg leading-8 text-[#4b5563]">{body}</p>
+          <p className="mt-6 max-w-[660px] text-base leading-8 text-[#4b5563] sm:mt-7 sm:text-lg">{body}</p>
         </div>
-        <div className="grid gap-3">
+        <div className="grid grid-cols-1 gap-3">
           {items.map((item) => (
             <div
               key={item}
-              className="flex gap-4 rounded-2xl border border-[#e2e8f0] bg-[#fbfdff] p-5 text-base font-semibold leading-7 text-[#111827] shadow-[0_16px_40px_rgba(15,23,42,0.04)]"
+              className="flex gap-4 rounded-2xl border border-[#e2e8f0] bg-[#fbfdff] p-4 text-sm font-semibold leading-7 text-[#111827] shadow-[0_16px_40px_rgba(15,23,42,0.04)] sm:p-5 sm:text-base"
             >
               <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-[linear-gradient(135deg,#4f7cff,#42d6b5)]" />
               <span>{item}</span>
@@ -462,40 +464,60 @@ function InfoPanel({
 
 export default function ScheduleBlockProjectPage() {
   return (
-    <main className="bg-white text-[#111827]">
-      <section className="relative overflow-hidden px-5 py-20 sm:px-8 lg:min-h-[calc(100vh-72px)] lg:py-28">
+    <main className="overflow-x-hidden bg-white text-[#111827]">
+      <section className="relative overflow-hidden px-5 py-14 sm:px-8 sm:py-20 lg:min-h-[calc(100vh-72px)] lg:py-28">
         <div className="absolute inset-x-0 top-0 h-[420px] bg-[radial-gradient(circle_at_70%_20%,rgba(79,124,255,0.14),transparent_32%),radial-gradient(circle_at_88%_38%,rgba(66,214,181,0.16),transparent_26%)]" />
-        <div className="relative mx-auto grid w-full max-w-[1200px] gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
-          <div>
+        <div className="relative mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-10 sm:gap-14 lg:grid-cols-[1.08fr_0.92fr] lg:items-center">
+          <div className="min-w-0">
             <SectionLabel>Independent Product</SectionLabel>
-            <h1 className="mt-6 text-[clamp(4rem,9vw,7rem)] font-black leading-[0.95] tracking-[-0.065em] text-[#111827]">
+            <h1 className="mt-5 w-full text-[clamp(2.5rem,13vw,4.4rem)] font-black leading-[0.98] tracking-[-0.055em] text-[#111827] sm:mt-6 sm:w-auto sm:text-[clamp(3.5rem,10vw,6rem)] lg:text-[clamp(4rem,9vw,7rem)]">
               {page.hero.title}
             </h1>
-            <p className="mt-8 max-w-[760px] text-3xl font-black leading-[1.32] tracking-[-0.035em] text-[#111827] sm:text-5xl">
-              {page.hero.subtitle}
+            <p className="mt-6 w-full break-all text-[clamp(1.4rem,5.6vw,2.9rem)] font-black leading-[1.32] tracking-[-0.035em] text-[#111827] sm:mt-8 sm:w-auto sm:max-w-[760px] sm:break-normal sm:text-[clamp(2.6rem,6vw,3rem)] sm:leading-[1.32]">
+              <span className="sm:hidden">
+                계획을 실패로 남기지 않고,
+                <br />
+                다시 이어갈 수 있게 돕는
+                <br />
+                회복형 스케줄 관리 앱
+              </span>
+              <span className="hidden sm:inline">{page.hero.subtitle}</span>
             </p>
-            <p className="mt-8 max-w-[720px] text-lg leading-8 text-[#4b5563] sm:text-xl sm:leading-9">
-              {page.hero.description}
+            <p className="mt-6 w-full break-all text-base leading-8 text-[#4b5563] sm:mt-8 sm:w-auto sm:max-w-[720px] sm:break-normal sm:text-xl sm:leading-9">
+              <span className="sm:hidden">
+                Schedule Block은 일정과 할 일을
+                <br />
+                블록처럼 쌓고, 완료하지 못한 일은
+                <br />
+                자동으로 다음 흐름에 연결해주는 iOS 앱입니다.
+                <br />
+                사용자가 계획을 지키지 못했을 때
+                <br />
+                죄책감을 느끼기보다, 다시 시작할 수 있는
+                <br />
+                구조를 만드는 것을 목표로 합니다.
+              </span>
+              <span className="hidden sm:inline">{page.hero.description}</span>
             </p>
-            <div className="mt-8 flex flex-wrap gap-2.5">
+            <div className="mt-8 grid w-full max-w-[280px] grid-cols-1 gap-2 sm:max-w-none sm:flex sm:flex-wrap sm:gap-2.5">
               {page.hero.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="rounded-full border border-[#d9e1ea] bg-white/85 px-3.5 py-2 text-xs font-bold text-[#4b5563] shadow-[0_10px_24px_rgba(15,23,42,0.04)]"
+                  className="inline-flex w-full max-w-full justify-center rounded-full border border-[#d9e1ea] bg-white/85 px-3.5 py-2 text-center text-xs font-bold text-[#4b5563] shadow-[0_10px_24px_rgba(15,23,42,0.04)] [overflow-wrap:anywhere] sm:w-auto"
                 >
                   {tag}
                 </span>
               ))}
             </div>
-            <div className="mt-6 rounded-[1.4rem] border border-[#d9e1ea] bg-white/82 p-4 shadow-[0_16px_44px_rgba(15,23,42,0.06)] backdrop-blur">
+            <div className="mt-6 w-full max-w-[280px] rounded-[1.4rem] border border-[#d9e1ea] bg-white/82 p-4 shadow-[0_16px_44px_rgba(15,23,42,0.06)] backdrop-blur sm:max-w-none">
               <p className="text-xs font-black uppercase tracking-[0.18em] text-[#8a94a6]">
                 Status
               </p>
-              <div className="mt-3 flex flex-wrap gap-2">
+              <div className="mt-3 grid grid-cols-1 gap-2 sm:flex sm:flex-wrap">
                 {page.hero.statusItems.map((item) => (
                   <span
                     key={item}
-                    className="inline-flex items-center gap-2 rounded-full border border-[#e2e8f0] bg-[#f8faff] px-3 py-1.5 text-xs font-bold text-[#111827]"
+                    className="inline-flex max-w-full items-center justify-center gap-2 rounded-full border border-[#e2e8f0] bg-[#f8faff] px-3 py-1.5 text-center text-xs font-bold text-[#111827] [overflow-wrap:anywhere]"
                   >
                     <span className="h-1.5 w-1.5 rounded-full bg-[linear-gradient(135deg,#4f7cff,#42d6b5)]" />
                     {item}
@@ -503,7 +525,7 @@ export default function ScheduleBlockProjectPage() {
                 ))}
               </div>
             </div>
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-10 flex w-full max-w-[280px] flex-wrap gap-3 sm:max-w-none">
               <PrimaryLink href={appStoreUrl}>View App Store</PrimaryLink>
               <SecondaryLink href="#case-study">View Case Study</SecondaryLink>
               <DisabledPill>{pdfStatus}</DisabledPill>
@@ -529,51 +551,51 @@ export default function ScheduleBlockProjectPage() {
 
       <section
         id="case-study"
-        className="bg-[#f6f9fc] px-5 py-20 sm:px-8 lg:py-28"
+        className="bg-[#f6f9fc] px-5 py-16 sm:px-8 sm:py-20 lg:py-28"
       >
-        <div className="mx-auto grid w-full max-w-[1200px] gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-start">
+        <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-10 lg:grid-cols-[0.86fr_1.14fr] lg:items-start">
           <div>
             <SectionLabel>{page.philosophy.eyebrow}</SectionLabel>
-            <h2 className="mt-5 text-4xl font-black leading-[1.16] tracking-[-0.035em] text-[#111827] sm:text-5xl">
+            <h2 className="mt-5 text-[clamp(2rem,8vw,3rem)] font-black leading-[1.16] tracking-[-0.035em] text-[#111827]">
               {page.philosophy.title}
             </h2>
-            <p className="mt-7 text-lg leading-8 text-[#4b5563]">{page.philosophy.body}</p>
-            <p className="mt-8 rounded-[1.5rem] bg-[#111827] p-6 text-2xl font-black leading-snug tracking-[-0.03em] text-white shadow-[0_24px_60px_rgba(15,23,42,0.16)]">
+            <p className="mt-6 text-base leading-8 text-[#4b5563] sm:mt-7 sm:text-lg">{page.philosophy.body}</p>
+            <p className="mt-8 rounded-[1.5rem] bg-[#111827] p-5 text-xl font-black leading-snug tracking-[-0.03em] text-white shadow-[0_24px_60px_rgba(15,23,42,0.16)] sm:p-6 sm:text-2xl">
               {page.philosophy.emphasis}
             </p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             {page.philosophy.items.map((item, index) => (
               <article
                 key={item}
-                className="rounded-[1.5rem] border border-[#d9e1ea] bg-white p-6 shadow-[0_18px_48px_rgba(15,23,42,0.06)]"
+                className="rounded-[1.5rem] border border-[#d9e1ea] bg-white p-5 shadow-[0_18px_48px_rgba(15,23,42,0.06)] sm:p-6"
               >
                 <p className="text-sm font-black text-[#4f7cff]">
                   {String(index + 1).padStart(2, "0")}
                 </p>
-                <p className="mt-4 text-lg font-bold leading-8 text-[#111827]">{item}</p>
+                <p className="mt-4 text-base font-bold leading-7 text-[#111827] sm:text-lg sm:leading-8">{item}</p>
               </article>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="px-5 py-20 sm:px-8 lg:py-28">
+      <section className="px-5 py-16 sm:px-8 sm:py-20 lg:py-28">
         <div className="mx-auto w-full max-w-[1200px]">
           <SectionLabel>Key Features</SectionLabel>
           <div className="mt-5 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
-            <h2 className="max-w-[680px] text-4xl font-black leading-[1.16] tracking-[-0.035em] text-[#111827] sm:text-5xl">
+            <h2 className="max-w-[680px] text-[clamp(2rem,8vw,3rem)] font-black leading-[1.16] tracking-[-0.035em] text-[#111827]">
               회복형 스케줄 관리를 위한 핵심 기능
             </h2>
             <p className="max-w-[420px] text-base leading-7 text-[#4b5563]">
               계획을 더 많이 쌓기보다, 무너진 계획을 다시 이어갈 수 있는 흐름에 집중합니다.
             </p>
           </div>
-          <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
             {page.features.map((feature) => (
               <article
                 key={feature.title}
-                className="group rounded-[1.5rem] border border-[#e2e8f0] bg-white p-6 shadow-[0_18px_46px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_26px_70px_rgba(15,23,42,0.11)]"
+                className="group rounded-[1.5rem] border border-[#e2e8f0] bg-white p-5 shadow-[0_18px_46px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1.5 hover:shadow-[0_26px_70px_rgba(15,23,42,0.11)] sm:p-6"
               >
                 <div className="h-11 w-11 rounded-2xl bg-[linear-gradient(135deg,#4f7cff,#42d6b5)] opacity-90 transition duration-300 group-hover:scale-105" />
                 <h3 className="mt-7 text-xl font-black tracking-[-0.02em] text-[#111827]">
@@ -588,26 +610,26 @@ export default function ScheduleBlockProjectPage() {
         </div>
       </section>
 
-      <section className="bg-[#eef6f8] px-5 py-20 sm:px-8 lg:py-28">
-        <div className="mx-auto grid w-full max-w-[1200px] gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+      <section className="bg-[#eef6f8] px-5 py-16 sm:px-8 sm:py-20 lg:py-28">
+        <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
           <div>
             <SectionLabel>Product Status</SectionLabel>
-            <h2 className="mt-5 text-4xl font-black tracking-[-0.035em] text-[#111827] sm:text-5xl">
+            <h2 className="mt-5 text-[clamp(2rem,8vw,3rem)] font-black leading-[1.12] tracking-[-0.035em] text-[#111827]">
               {page.status.title}
             </h2>
-            <p className="mt-7 text-lg leading-8 text-[#4b5563]">{page.status.body}</p>
+            <p className="mt-6 text-base leading-8 text-[#4b5563] sm:mt-7 sm:text-lg">{page.status.body}</p>
           </div>
           <div>
-            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
               {page.status.metrics.map((metric) => (
                 <article
                   key={metric.label}
-                  className="rounded-[1.4rem] border border-[#d9e1ea] bg-white p-5 shadow-[0_18px_42px_rgba(15,23,42,0.06)]"
+                  className="min-w-0 rounded-[1.4rem] border border-[#d9e1ea] bg-white p-5 shadow-[0_18px_42px_rgba(15,23,42,0.06)]"
                 >
-                  <p className="text-2xl font-black tracking-[-0.035em] text-[#111827]">
+                  <p className="text-[clamp(1.35rem,6vw,1.5rem)] font-black leading-tight tracking-[-0.035em] text-[#111827] [overflow-wrap:anywhere]">
                     {metric.value}
                   </p>
-                  <p className="mt-2 text-xs font-black uppercase tracking-[0.16em] text-[#4f7cff]">
+                  <p className="mt-2 text-xs font-black uppercase tracking-[0.12em] text-[#4f7cff] [overflow-wrap:anywhere] sm:tracking-[0.16em]">
                     {metric.label}
                   </p>
                   <p className="mt-3 text-sm leading-6 text-[#4b5563]">
@@ -616,11 +638,11 @@ export default function ScheduleBlockProjectPage() {
                 </article>
               ))}
             </div>
-            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+            <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2">
               {page.status.items.map((item) => (
                 <div
                   key={item}
-                  className="rounded-[1.2rem] border border-[#d9e1ea] bg-white/76 p-4 font-bold leading-7 text-[#111827]"
+                  className="rounded-[1.2rem] border border-[#d9e1ea] bg-white/76 p-4 text-sm font-bold leading-7 text-[#111827] sm:text-base"
                 >
                   {item}
                 </div>
@@ -630,21 +652,21 @@ export default function ScheduleBlockProjectPage() {
         </div>
       </section>
 
-      <section className="px-5 py-20 sm:px-8 lg:py-28">
-        <div className="mx-auto grid w-full max-w-[1200px] gap-8 lg:grid-cols-[1fr_0.9fr]">
-          <article className="rounded-[2rem] border border-[#e2e8f0] bg-white p-8 shadow-[0_24px_70px_rgba(15,23,42,0.08)] sm:p-10">
+      <section className="px-5 py-16 sm:px-8 sm:py-20 lg:py-28">
+        <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-8 lg:grid-cols-[1fr_0.9fr]">
+          <article className="rounded-[1.5rem] border border-[#e2e8f0] bg-white p-5 shadow-[0_24px_70px_rgba(15,23,42,0.08)] sm:rounded-[2rem] sm:p-10">
             <SectionLabel>Founder / Product Maker</SectionLabel>
-            <h2 className="mt-5 max-w-[760px] text-4xl font-black leading-[1.14] tracking-[-0.04em] text-[#111827] sm:text-5xl">
+            <h2 className="mt-5 max-w-[760px] text-[clamp(2rem,8vw,3rem)] font-black leading-[1.14] tracking-[-0.04em] text-[#111827]">
               {page.maker.title}
             </h2>
-            <p className="mt-7 text-lg leading-8 text-[#4b5563]">{page.maker.body}</p>
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            <p className="mt-6 text-base leading-8 text-[#4b5563] sm:mt-7 sm:text-lg">{page.maker.body}</p>
+            <div className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
               {page.maker.metrics.map((metric) => (
                 <div
                   key={metric.value}
-                  className="rounded-[1.2rem] border border-[#e2e8f0] bg-[#fbfdff] p-5"
+                  className="min-w-0 rounded-[1.2rem] border border-[#e2e8f0] bg-[#fbfdff] p-5"
                 >
-                  <p className="text-2xl font-black tracking-[-0.035em] text-[#111827]">
+                  <p className="text-[clamp(1.35rem,6vw,1.5rem)] font-black leading-tight tracking-[-0.035em] text-[#111827] [overflow-wrap:anywhere]">
                     {metric.value}
                   </p>
                   <p className="mt-2 text-sm font-bold leading-6 text-[#4b5563]">
@@ -664,14 +686,14 @@ export default function ScheduleBlockProjectPage() {
               ))}
             </div>
           </article>
-          <article className="rounded-[2rem] bg-[#111827] p-8 text-white shadow-[0_24px_70px_rgba(15,23,42,0.16)] sm:p-10">
+          <article className="rounded-[1.5rem] bg-[#111827] p-5 text-white shadow-[0_24px_70px_rgba(15,23,42,0.16)] sm:rounded-[2rem] sm:p-10">
             <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#42d6b5]">
               {page.target.title}
             </p>
-            <p className="mt-6 text-lg leading-8 text-white/76">{page.target.body}</p>
+            <p className="mt-6 text-base leading-8 text-white/76 sm:text-lg">{page.target.body}</p>
             <ul className="mt-8 space-y-3">
               {page.target.items.map((item) => (
-                <li key={item} className="flex gap-3 text-base font-semibold leading-7">
+                <li key={item} className="flex gap-3 text-sm font-semibold leading-7 sm:text-base">
                   <span className="mt-2.5 h-2 w-2 shrink-0 rounded-full bg-[#42d6b5]" />
                   <span>{item}</span>
                 </li>
@@ -681,24 +703,24 @@ export default function ScheduleBlockProjectPage() {
         </div>
       </section>
 
-      <section className="bg-[#f8faff] px-5 py-20 sm:px-8 lg:py-28">
+      <section className="bg-[#f8faff] px-5 py-16 sm:px-8 sm:py-20 lg:py-28">
         <div className="mx-auto w-full max-w-[1200px]">
-          <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
             <div>
               <SectionLabel>Growth</SectionLabel>
-              <h2 className="mt-5 text-4xl font-black tracking-[-0.035em] text-[#111827] sm:text-5xl">
+              <h2 className="mt-5 text-[clamp(2rem,8vw,3rem)] font-black leading-[1.12] tracking-[-0.035em] text-[#111827]">
                 {page.business.title}
               </h2>
-              <p className="mt-7 text-lg leading-8 text-[#4b5563]">{page.business.body}</p>
+              <p className="mt-6 text-base leading-8 text-[#4b5563] sm:mt-7 sm:text-lg">{page.business.body}</p>
             </div>
-            <div className="grid gap-5 lg:grid-cols-2">
+            <div className="grid grid-cols-1 gap-5 lg:grid-cols-2">
               {[
                 ["Target Users", page.business.targetUsers],
                 ["Revenue Opportunities", page.business.revenueOpportunities],
               ].map(([title, items]) => (
                 <article
                   key={title as string}
-                  className="rounded-[1.6rem] border border-[#d9e1ea] bg-white p-6 shadow-[0_18px_48px_rgba(15,23,42,0.06)]"
+                  className="min-w-0 rounded-[1.6rem] border border-[#d9e1ea] bg-white p-5 shadow-[0_18px_48px_rgba(15,23,42,0.06)] sm:p-6"
                 >
                   <h3 className="text-xl font-black tracking-[-0.025em] text-[#111827]">
                     {title as string}
@@ -707,7 +729,7 @@ export default function ScheduleBlockProjectPage() {
                     {(items as readonly string[]).map((item) => (
                       <span
                         key={item}
-                        className="rounded-full border border-[#e2e8f0] bg-[#fbfdff] px-3 py-2 text-xs font-bold text-[#4b5563]"
+                        className="max-w-full rounded-full border border-[#e2e8f0] bg-[#fbfdff] px-3 py-2 text-xs font-bold text-[#4b5563] [overflow-wrap:anywhere]"
                       >
                         {item}
                       </span>
@@ -718,38 +740,38 @@ export default function ScheduleBlockProjectPage() {
             </div>
           </div>
 
-          <div className="mt-20 grid gap-10 rounded-[2rem] border border-[#d9e1ea] bg-white p-8 shadow-[0_24px_70px_rgba(15,23,42,0.07)] sm:p-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+          <div className="mt-14 grid grid-cols-1 gap-8 rounded-[1.5rem] border border-[#d9e1ea] bg-white p-5 shadow-[0_24px_70px_rgba(15,23,42,0.07)] sm:mt-20 sm:rounded-[2rem] sm:p-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
             <div>
               <SectionLabel>{page.whyNow.title}</SectionLabel>
-              <h2 className="mt-5 text-4xl font-black tracking-[-0.035em] text-[#111827] sm:text-5xl">
+              <h2 className="mt-5 text-[clamp(2rem,8vw,3rem)] font-black leading-[1.14] tracking-[-0.035em] text-[#111827]">
                 회복형 생산성이 필요한 시점
               </h2>
-              <p className="mt-7 text-lg leading-8 text-[#4b5563]">
+              <p className="mt-6 text-base leading-8 text-[#4b5563] [overflow-wrap:anywhere] sm:mt-7 sm:text-lg">
                 {page.whyNow.body}
               </p>
             </div>
-            <div className="grid gap-3">
+            <div className="grid grid-cols-1 gap-3">
               {page.whyNow.items.map((item) => (
                 <div
                   key={item}
-                  className="flex gap-4 rounded-2xl border border-[#e2e8f0] bg-[#f8faff] p-5 text-base font-bold leading-7 text-[#111827]"
+                  className="flex gap-4 rounded-2xl border border-[#e2e8f0] bg-[#f8faff] p-4 text-sm font-bold leading-7 text-[#111827] sm:p-5 sm:text-base"
                 >
                   <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-[#42d6b5]" />
-                  <span>{item}</span>
+                  <span className="min-w-0 [overflow-wrap:anywhere]">{item}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="mt-20">
+          <div className="mt-14 sm:mt-20">
             <SectionLabel>Roadmap</SectionLabel>
-            <div className="mt-8 grid gap-5 lg:grid-cols-3">
+            <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-3">
               {page.roadmap.map((phase) => (
                 <article
                   key={phase.phase}
-                  className="rounded-[1.5rem] border border-[#d9e1ea] bg-white p-6 shadow-[0_18px_48px_rgba(15,23,42,0.05)]"
+                  className="rounded-[1.5rem] border border-[#d9e1ea] bg-white p-5 shadow-[0_18px_48px_rgba(15,23,42,0.05)] sm:p-6"
                 >
-                  <h3 className="text-2xl font-black tracking-[-0.03em] text-[#111827]">
+                  <h3 className="text-xl font-black tracking-[-0.03em] text-[#111827] sm:text-2xl">
                     {phase.phase}
                   </h3>
                   <ul className="mt-6 space-y-3">
@@ -767,22 +789,22 @@ export default function ScheduleBlockProjectPage() {
         </div>
       </section>
 
-      <section className="px-5 py-20 sm:px-8 lg:py-28">
-        <div className="mx-auto grid w-full max-w-[1200px] gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
+      <section className="px-5 py-16 sm:px-8 sm:py-20 lg:py-28">
+        <div className="mx-auto grid w-full max-w-[1200px] grid-cols-1 gap-10 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
           <div>
             <SectionLabel>Evidence & Assets</SectionLabel>
-            <h2 className="mt-5 text-4xl font-black tracking-[-0.035em] text-[#111827] sm:text-5xl">
+            <h2 className="mt-5 text-[clamp(2rem,8vw,3rem)] font-black leading-[1.14] tracking-[-0.035em] text-[#111827]">
               소개서로 확장 가능한 근거 자료
             </h2>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             {page.evidence.map((item) => (
               <div
                 key={item.title}
-                className="rounded-2xl border border-[#e2e8f0] bg-[#fbfdff] p-5"
+                className="min-w-0 rounded-2xl border border-[#e2e8f0] bg-[#fbfdff] p-5"
               >
-                <p className="text-base font-black text-[#111827]">{item.title}</p>
-                <p className="mt-3 inline-flex rounded-full bg-white px-3 py-1.5 text-xs font-black uppercase tracking-[0.12em] text-[#4f7cff]">
+                <p className="text-base font-black text-[#111827] [overflow-wrap:anywhere]">{item.title}</p>
+                <p className="mt-3 inline-flex max-w-full rounded-full bg-white px-3 py-1.5 text-xs font-black uppercase tracking-[0.1em] text-[#4f7cff] [overflow-wrap:anywhere]">
                   {item.status}
                 </p>
               </div>
@@ -791,33 +813,33 @@ export default function ScheduleBlockProjectPage() {
         </div>
       </section>
 
-      <section className="px-5 pb-20 sm:px-8 lg:pb-28">
-        <div className="mx-auto max-w-[1200px] rounded-[2rem] bg-[#0b111a] p-8 text-white shadow-[0_30px_90px_rgba(15,23,42,0.22)] sm:p-12 lg:p-16">
+      <section className="px-5 pb-16 sm:px-8 sm:pb-20 lg:pb-28">
+        <div className="mx-auto max-w-[1200px] rounded-[1.5rem] bg-[#0b111a] p-6 text-white shadow-[0_30px_90px_rgba(15,23,42,0.22)] sm:rounded-[2rem] sm:p-12 lg:p-16">
           <p className="text-xs font-bold uppercase tracking-[0.22em] text-[#42d6b5]">
             Closing
           </p>
-          <h2 className="mt-5 max-w-[820px] text-4xl font-black leading-[1.12] tracking-[-0.04em] sm:text-6xl">
+          <h2 className="mt-5 max-w-[820px] text-[clamp(2.25rem,9vw,3.75rem)] font-black leading-[1.12] tracking-[-0.04em]">
             {page.closing.title}
           </h2>
-          <p className="mt-7 max-w-[720px] text-lg leading-8 text-white/72">
+          <p className="mt-6 max-w-[720px] text-base leading-8 text-white/72 sm:mt-7 sm:text-lg">
             {page.closing.body}
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
               href={appStoreUrl}
-              className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-black text-[#111827] transition duration-300 hover:-translate-y-0.5"
+              className="inline-flex min-h-12 w-full items-center justify-center rounded-full bg-white px-6 text-sm font-black text-[#111827] transition duration-300 hover:-translate-y-0.5 sm:w-auto"
             >
               View App Store
             </Link>
             <Link
               href="/contact"
-              className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/18 px-6 text-sm font-black text-white transition duration-300 hover:-translate-y-0.5 hover:border-white/45"
+              className="inline-flex min-h-12 w-full items-center justify-center rounded-full border border-white/18 px-6 text-sm font-black text-white transition duration-300 hover:-translate-y-0.5 hover:border-white/45 sm:w-auto"
             >
               Contact
             </Link>
             <span
               aria-disabled="true"
-              className="inline-flex min-h-12 cursor-not-allowed items-center justify-center rounded-full border border-white/12 px-6 text-sm font-black text-white/52"
+              className="inline-flex min-h-12 w-full cursor-not-allowed items-center justify-center rounded-full border border-white/12 px-6 text-sm font-black text-white/52 sm:w-auto"
             >
               {pdfStatus}
             </span>
