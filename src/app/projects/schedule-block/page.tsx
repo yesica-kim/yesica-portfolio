@@ -33,6 +33,12 @@ const page = {
       "AI-assisted Development",
       "Independent Product",
     ],
+    statusItems: [
+      "App Store Released",
+      "Google Calendar Sync",
+      "Active Development",
+      "v1.5.1",
+    ],
   },
   problem: {
     eyebrow: "Problem",
@@ -105,6 +111,38 @@ const page = {
   status: {
     title: "Current Status",
     body: "Schedule Block은 이미 iOS 앱으로 출시되어 있으며, 실제 사용을 기반으로 지속적으로 개선 중입니다.",
+    metrics: [
+      {
+        value: "v1.5.1",
+        label: "Released Version",
+        description: "현재 개발 및 개선 기준 버전",
+      },
+      {
+        value: "2025 ~ Present",
+        label: "Development Period",
+        description: "개인 문제 정의부터 출시 이후 개선까지 진행",
+      },
+      {
+        value: "7+",
+        label: "Major Features",
+        description: "블록 일정, 자동 미루기, 루틴, 기록, 동기화 등",
+      },
+      {
+        value: "iOS",
+        label: "Platform",
+        description: "모바일 중심의 개인 스케줄 관리 앱",
+      },
+      {
+        value: "Google Calendar",
+        label: "Calendar Integration",
+        description: "외부 캘린더 흐름과 일정 데이터를 함께 관리",
+      },
+      {
+        value: "Released / Iterating",
+        label: "Current Stage",
+        description: "출시 후 실제 사용 흐름을 기반으로 반복 개선 중",
+      },
+    ],
     items: [
       "iOS 앱 출시 완료",
       "Google Calendar 연동 완료",
@@ -117,6 +155,24 @@ const page = {
   maker: {
     title: "Built by a product designer who needed this system first.",
     body: "Schedule Block은 13년차 UI/UX 디자이너 예시카가 직접 겪은 일정 관리, 무기력, 번아웃, 회복의 문제에서 출발한 제품입니다. 단순히 생산성을 높이기 위한 앱이 아니라, 계획이 무너진 뒤에도 다시 일상으로 돌아올 수 있는 구조를 고민하며 만들어졌습니다.",
+    metrics: [
+      {
+        value: "13+ Years",
+        label: "UI/UX Design Experience",
+      },
+      {
+        value: "3+ Products",
+        label: "Independent Product Building",
+      },
+      {
+        value: "AI-assisted",
+        label: "Planning, Design, Development",
+      },
+      {
+        value: "End-to-End",
+        label: "Planning, Design, QA, Operation",
+      },
+    ],
     points: [
       "13년차 UI/UX 디자이너",
       "실제 서비스 운영 경험",
@@ -138,14 +194,32 @@ const page = {
   },
   business: {
     title: "Business Potential",
-    body: "Schedule Block은 개인 생산성 앱 시장 안에서 \"회복형 생산성\"이라는 차별화된 방향을 가집니다. 향후 구독 모델, 템플릿, AI 기반 루틴 제안, 회복 리포트 등으로 확장 가능성이 있습니다.",
+    body: "Schedule Block은 개인 생산성 앱 시장 안에서 \"회복형 생산성\"이라는 차별화된 방향을 가집니다. 일정 추적을 넘어 루틴 회복, AI 기반 재배치, 개인 운영 시스템 콘텐츠로 확장할 수 있습니다.",
+    targetUsers: [
+      "Knowledge Workers",
+      "Freelancers",
+      "Solo Entrepreneurs",
+      "Remote Workers",
+      "People with ADHD traits",
+      "People recovering from burnout",
+    ],
+    revenueOpportunities: [
+      "Freemium + Premium subscription",
+      "Routine template packs",
+      "AI-assisted schedule recovery",
+      "Recovery report insights",
+      "Life Coaching Studio ecosystem",
+    ],
+  },
+  whyNow: {
+    title: "Why Now",
+    body: "As work becomes more flexible and self-directed, people need tools that help them recover from disrupted plans rather than simply track unfinished tasks. Schedule Block focuses on recovery-oriented productivity for people managing routines, remote work, freelance schedules, and fluctuating energy levels.",
     items: [
-      "Freemium + Premium 구독 모델",
-      "루틴 템플릿 판매",
-      "AI 기반 일정 재배치",
-      "회복형 리포트",
-      "개인 운영 시스템 콘텐츠와 연계",
-      "Life Coaching Studio의 핵심 제품으로 확장",
+      "Rise of remote and freelance work",
+      "Growing demand for personal productivity systems",
+      "Increased awareness of ADHD and burnout",
+      "Need for routine recovery, not just task tracking",
+      "AI-assisted planning opportunities",
     ],
   },
   roadmap: [
@@ -178,13 +252,34 @@ const page = {
     },
   ],
   evidence: [
-    "App Store 출시 여부",
-    "버전 히스토리",
-    "주요 화면 스크린샷",
-    "Google Calendar 연동 화면",
-    "루틴 체크 화면",
-    "브런치 개발기 링크 예정",
-    "PDF 소개서 다운로드 예정",
+    {
+      title: "App Store Listing",
+      status: "Released",
+    },
+    {
+      title: "Product Screenshots",
+      status: "Preparing",
+    },
+    {
+      title: "Version History",
+      status: "Available",
+    },
+    {
+      title: "Google Calendar Integration",
+      status: "Built",
+    },
+    {
+      title: "Routine Check Feature",
+      status: "In Development",
+    },
+    {
+      title: "Brunch Development Notes",
+      status: "Coming Soon",
+    },
+    {
+      title: "PDF Introduction Deck",
+      status: "Coming Soon",
+    },
   ],
   closing: {
     title: "A schedule app for people who are trying again.",
@@ -392,6 +487,22 @@ export default function ScheduleBlockProjectPage() {
                 </span>
               ))}
             </div>
+            <div className="mt-6 rounded-[1.4rem] border border-[#d9e1ea] bg-white/82 p-4 shadow-[0_16px_44px_rgba(15,23,42,0.06)] backdrop-blur">
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-[#8a94a6]">
+                Status
+              </p>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {page.hero.statusItems.map((item) => (
+                  <span
+                    key={item}
+                    className="inline-flex items-center gap-2 rounded-full border border-[#e2e8f0] bg-[#f8faff] px-3 py-1.5 text-xs font-bold text-[#111827]"
+                  >
+                    <span className="h-1.5 w-1.5 rounded-full bg-[linear-gradient(135deg,#4f7cff,#42d6b5)]" />
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
             <div className="mt-10 flex flex-wrap gap-3">
               <PrimaryLink href={appStoreUrl}>View App Store</PrimaryLink>
               <SecondaryLink href="#case-study">View Case Study</SecondaryLink>
@@ -486,15 +597,35 @@ export default function ScheduleBlockProjectPage() {
             </h2>
             <p className="mt-7 text-lg leading-8 text-[#4b5563]">{page.status.body}</p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2">
-            {page.status.items.map((item) => (
-              <div
-                key={item}
-                className="rounded-[1.4rem] border border-[#d9e1ea] bg-white/88 p-5 font-bold leading-7 text-[#111827] shadow-[0_18px_42px_rgba(15,23,42,0.05)]"
-              >
-                {item}
-              </div>
-            ))}
+          <div>
+            <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+              {page.status.metrics.map((metric) => (
+                <article
+                  key={metric.label}
+                  className="rounded-[1.4rem] border border-[#d9e1ea] bg-white p-5 shadow-[0_18px_42px_rgba(15,23,42,0.06)]"
+                >
+                  <p className="text-2xl font-black tracking-[-0.035em] text-[#111827]">
+                    {metric.value}
+                  </p>
+                  <p className="mt-2 text-xs font-black uppercase tracking-[0.16em] text-[#4f7cff]">
+                    {metric.label}
+                  </p>
+                  <p className="mt-3 text-sm leading-6 text-[#4b5563]">
+                    {metric.description}
+                  </p>
+                </article>
+              ))}
+            </div>
+            <div className="mt-5 grid gap-3 sm:grid-cols-2">
+              {page.status.items.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-[1.2rem] border border-[#d9e1ea] bg-white/76 p-4 font-bold leading-7 text-[#111827]"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -507,6 +638,21 @@ export default function ScheduleBlockProjectPage() {
               {page.maker.title}
             </h2>
             <p className="mt-7 text-lg leading-8 text-[#4b5563]">{page.maker.body}</p>
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+              {page.maker.metrics.map((metric) => (
+                <div
+                  key={metric.value}
+                  className="rounded-[1.2rem] border border-[#e2e8f0] bg-[#fbfdff] p-5"
+                >
+                  <p className="text-2xl font-black tracking-[-0.035em] text-[#111827]">
+                    {metric.value}
+                  </p>
+                  <p className="mt-2 text-sm font-bold leading-6 text-[#4b5563]">
+                    {metric.label}
+                  </p>
+                </div>
+              ))}
+            </div>
             <div className="mt-8 flex flex-wrap gap-2.5">
               {page.maker.points.map((point) => (
                 <span
@@ -545,14 +691,52 @@ export default function ScheduleBlockProjectPage() {
               </h2>
               <p className="mt-7 text-lg leading-8 text-[#4b5563]">{page.business.body}</p>
             </div>
-            <div className="grid gap-4 sm:grid-cols-2">
-              {page.business.items.map((item) => (
+            <div className="grid gap-5 lg:grid-cols-2">
+              {[
+                ["Target Users", page.business.targetUsers],
+                ["Revenue Opportunities", page.business.revenueOpportunities],
+              ].map(([title, items]) => (
                 <article
-                  key={item}
-                  className="rounded-[1.4rem] border border-[#d9e1ea] bg-white p-5 shadow-[0_18px_48px_rgba(15,23,42,0.06)]"
+                  key={title as string}
+                  className="rounded-[1.6rem] border border-[#d9e1ea] bg-white p-6 shadow-[0_18px_48px_rgba(15,23,42,0.06)]"
                 >
-                  <p className="text-base font-black leading-7 text-[#111827]">{item}</p>
+                  <h3 className="text-xl font-black tracking-[-0.025em] text-[#111827]">
+                    {title as string}
+                  </h3>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    {(items as readonly string[]).map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-[#e2e8f0] bg-[#fbfdff] px-3 py-2 text-xs font-bold text-[#4b5563]"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
                 </article>
+              ))}
+            </div>
+          </div>
+
+          <div className="mt-20 grid gap-10 rounded-[2rem] border border-[#d9e1ea] bg-white p-8 shadow-[0_24px_70px_rgba(15,23,42,0.07)] sm:p-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
+            <div>
+              <SectionLabel>{page.whyNow.title}</SectionLabel>
+              <h2 className="mt-5 text-4xl font-black tracking-[-0.035em] text-[#111827] sm:text-5xl">
+                회복형 생산성이 필요한 시점
+              </h2>
+              <p className="mt-7 text-lg leading-8 text-[#4b5563]">
+                {page.whyNow.body}
+              </p>
+            </div>
+            <div className="grid gap-3">
+              {page.whyNow.items.map((item) => (
+                <div
+                  key={item}
+                  className="flex gap-4 rounded-2xl border border-[#e2e8f0] bg-[#f8faff] p-5 text-base font-bold leading-7 text-[#111827]"
+                >
+                  <span className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full bg-[#42d6b5]" />
+                  <span>{item}</span>
+                </div>
               ))}
             </div>
           </div>
@@ -594,10 +778,13 @@ export default function ScheduleBlockProjectPage() {
           <div className="grid gap-3 sm:grid-cols-2">
             {page.evidence.map((item) => (
               <div
-                key={item}
-                className="rounded-2xl border border-[#e2e8f0] bg-[#fbfdff] p-5 text-base font-bold text-[#111827]"
+                key={item.title}
+                className="rounded-2xl border border-[#e2e8f0] bg-[#fbfdff] p-5"
               >
-                {item}
+                <p className="text-base font-black text-[#111827]">{item.title}</p>
+                <p className="mt-3 inline-flex rounded-full bg-white px-3 py-1.5 text-xs font-black uppercase tracking-[0.12em] text-[#4f7cff]">
+                  {item.status}
+                </p>
               </div>
             ))}
           </div>
