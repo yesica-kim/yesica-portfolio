@@ -7,7 +7,9 @@ type ProjectPageProps = {
 };
 
 export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
+  return projects
+    .filter((project) => project.slug !== "schedule-block")
+    .map((project) => ({ slug: project.slug }));
 }
 
 export async function generateMetadata({ params }: ProjectPageProps) {
