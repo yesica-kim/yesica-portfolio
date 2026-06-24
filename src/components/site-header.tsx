@@ -3,15 +3,20 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
+const worksItems = [
+  { href: "/projects", label: "Portfolio" },
+  { href: "/projects/schedule-block", label: "Schedule Block" },
+  { href: "/projects/walla", label: "Walla" },
+  { href: "/projects/wsop-plus", label: "WSOP+" },
+];
+
 const navItems = {
   ko: [
-    { href: "/#projects", label: "Works" },
     { href: "/#about", label: "About" },
     { href: "/#experience", label: "Experience" },
     { href: "/#writing", label: "brunch" },
   ],
   en: [
-    { href: "/en#projects", label: "Works" },
     { href: "/en#about", label: "About" },
     { href: "/en#experience", label: "Experience" },
     { href: "/en#writing", label: "brunch" },
@@ -32,6 +37,27 @@ export function SiteHeader() {
           </span>
         </Link>
         <nav className="hidden items-center justify-center gap-10 text-sm font-medium text-[#111827] md:flex lg:gap-14">
+          <div className="group relative">
+            <Link
+              href="/projects"
+              className="inline-flex h-[72px] items-center transition hover:text-[#5A8DFF]"
+            >
+              Works
+            </Link>
+            <div className="pointer-events-none absolute left-1/2 top-[58px] w-[220px] -translate-x-1/2 translate-y-2 opacity-0 transition duration-200 group-hover:pointer-events-auto group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:translate-y-0 group-focus-within:opacity-100">
+              <div className="rounded-2xl border border-[#E2E8F0] bg-white/95 p-2 shadow-[0_24px_70px_rgba(15,23,42,0.12)] backdrop-blur-2xl">
+                {worksItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="block rounded-xl px-4 py-3 text-sm font-semibold text-[#111827] transition hover:bg-[#F6F9FC] hover:text-[#4F7CFF]"
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
           {navItems[locale].map((item) => (
             <Link
               key={item.href}
